@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Rubik, Geist } from "next/font/google";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import "./globals.css";
+import { Rubik } from "next/font/google";
+import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import "./globals.css";
 
 const rubik = Rubik({
   subsets: ["latin", "hebrew"],
@@ -27,10 +25,16 @@ export default function RootLayout({
     <html
       lang="he"
       dir="rtl"
-      className={cn("h-full", "scroll-smooth", "antialiased", rubik.variable, "font-sans", geist.variable)}
+      suppressHydrationWarning
+      className={cn(
+        "dark",
+        "h-full scroll-smooth antialiased",
+        rubik.variable,
+        "font-sans"
+      )}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <Header />
+        <Navbar />
         <div className="flex flex-1 flex-col">{children}</div>
         <Footer />
       </body>
