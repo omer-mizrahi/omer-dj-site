@@ -113,7 +113,7 @@ export function EventFlow() {
         <h2 className="text-balance text-center text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           המסע שלכם
           <br />
-          מהרגע הראשון ועד לרחבה בוערת
+          מהרגע הראשון ועד לסיום האירוע
         </h2>
 
         <div className="relative mt-16 md:mt-24">

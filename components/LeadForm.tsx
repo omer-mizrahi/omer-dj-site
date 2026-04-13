@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { CalendarIcon, CheckCircle, Mail, MessageCircle, Phone } from "lucide-react";
 import * as React from "react";
+import { format } from "date-fns";
+import { he } from "date-fns/locale";
 
 import {
   Select,
@@ -11,6 +13,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -39,9 +43,11 @@ const labelClassName =
 
 const EVENT_TYPES = [
   { value: "wedding", label: "חתונה" },
+  { value: "henna", label: "חינה" },
   { value: "bar-bat-mitzvah", label: "בר/בת מצווה" },
   { value: "corporate", label: "אירוע חברה" },
   { value: "private", label: "אירוע פרטי" },
+  { value: "other", label: "אחר" },
 ] as const;
 
 const selectTriggerClassName = cn(
@@ -149,16 +155,41 @@ function ContactCard() {
 }
 
 export function LeadForm() {
-  const [submitted, setSubmitted] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [whatsappOpenUrl, setWhatsappOpenUrl] = React.useState<string | null>(null);
   /** מצב נבחר בלבד — `undefined` = אין בחירה (מציג placeholder), ללא מעבר בין מחרוזת ריקה ל־undefined ב־value */
-  const [eventType, setEventType] = React.useState<string | undefined>(undefined);
+  const [eventType, setEventType] = React.useState("");
+  const [eventDate, setEventDate] = React.useState<Date | undefined>(undefined);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (eventType == null || eventType === "") {
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    setSubmitted(true);
+    if (eventType === "") {
+      return;
+    }
+
+    const fd = new FormData(form);
+    const fullName = String(fd.get("fullName") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").trim();
+    const eventTypeLabel =
+      EVENT_TYPES.find((t) => t.value === eventType)?.label ?? eventType;
+    const dateStr = eventDate ? format(eventDate, "dd/MM/yyyy") : "לא צוין";
+
+    const message =
+      `היי עומר, אשמח לבדוק זמינות לאירוע!
+שם: ${fullName}
+טלפון: ${phone}
+סוג אירוע: ${eventTypeLabel}
+` + `\u05ea\u05d0\u05e8\u05d9\u05da: ${dateStr}`;
+
+    const whatsappUrl = `https://wa.me/972547672082?text=${encodeURIComponent(message)}`;
+    setWhatsappOpenUrl(whatsappUrl);
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setIsSubmitted(true);
   }
 
   return (
@@ -189,10 +220,41 @@ export function LeadForm() {
                 "ring-1 ring-inset ring-white/5 sm:p-8"
               )}
             >
-              {submitted ? (
-                <p className="py-8 text-center text-lg font-medium text-foreground">
-                  תודה! קיבלנו את הפנייה ונחזור אליכם בהקדם.
-                </p>
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center gap-5 py-10 text-center">
+                  <div
+                    className={cn(
+                      "flex size-[4.5rem] items-center justify-center rounded-full",
+                      "bg-gradient-to-br from-emerald-400/30 via-neon-purple/25 to-electric-blue/25",
+                      "shadow-[0_0_36px_rgba(52,211,153,0.35),0_0_28px_rgba(37,99,235,0.28)]",
+                      "ring-2 ring-emerald-400/45 ring-offset-2 ring-offset-[#09090b]/0"
+                    )}
+                    aria-hidden
+                  >
+                    <CheckCircle
+                      className="size-10 text-emerald-400 drop-shadow-[0_0_14px_rgba(52,211,153,0.65)]"
+                      strokeWidth={2}
+                    />
+                  </div>
+                  <h3 className="text-balance text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+                    מעולה! עברנו לווטסאפ.
+                  </h3>
+                  <p className="max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    אם החלון לא נפתח אוטומטית,{" "}
+                    <a
+                      href={whatsappOpenUrl ?? WHATSAPP_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "font-semibold text-neon-purple underline decoration-neon-purple/45 underline-offset-4",
+                        "transition-colors hover:text-turquoise hover:decoration-turquoise/60"
+                      )}
+                    >
+                      לחצו כאן
+                    </a>
+                    .
+                  </p>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div>
@@ -229,12 +291,60 @@ export function LeadForm() {
                       תאריך האירוע
                     </label>
                     <input
+                      type="hidden"
                       id="eventDate"
                       name="eventDate"
-                      type="date"
-                      className={cn(inputClassName, "font-sans")}
-                      dir="ltr"
+                      value={eventDate ? format(eventDate, "dd/MM/yyyy") : ""}
                     />
+                    <Popover>
+                      <PopoverTrigger
+                        type="button"
+                        className={cn(
+                          inputClassName,
+                          "flex items-center justify-between gap-3",
+                          "data-[state=open]:border-neon-purple/60 data-[state=open]:bg-white/[0.08]"
+                        )}
+                        aria-label="בחרו תאריך"
+                      >
+                        <span
+                          className={cn(
+                            "min-w-0 flex-1 truncate text-start",
+                            !eventDate && "text-muted-foreground/70"
+                          )}
+                          dir="ltr"
+                        >
+                          {eventDate ? format(eventDate, "dd/MM/yyyy") : "DD/MM/YYYY"}
+                        </span>
+                        <CalendarIcon className="size-5 shrink-0 text-muted-foreground" aria-hidden />
+                      </PopoverTrigger>
+                      <PopoverContent
+                        dir="rtl"
+                        className={cn(
+                          "w-auto p-0",
+                          "border border-white/10 bg-[#09090b] text-white shadow-xl shadow-black/50",
+                          "ring-1 ring-white/10",
+                          "[&_[data-slot=button]]:text-white/90",
+                          "[&_[data-selected-single=true]]:bg-neon-purple [&_[data-selected-single=true]]:text-white",
+                          "[&_[data-day]]:hover:bg-neon-purple/20",
+                          "[&_.rdp-caption_label]:text-white",
+                          "[&_.rdp-weekday]:text-white/60"
+                        )}
+                        sideOffset={8}
+                      >
+                        <Calendar
+                          mode="single"
+                          selected={eventDate}
+                          onSelect={setEventDate}
+                          disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                          captionLayout={"dropdown-buttons" as any}
+                          fromYear={new Date().getFullYear()}
+                          toYear={new Date().getFullYear() + 4}
+                          locale={he}
+                          weekStartsOn={0}
+                          className="bg-[#09090b]"
+                        />
+                      </PopoverContent>
+                    </Popover>
                   </div>
                   <div>
                     <label htmlFor="eventType" className={labelClassName}>
@@ -243,11 +353,11 @@ export function LeadForm() {
                     <input
                       type="hidden"
                       name="eventType"
-                      value={eventType ?? ""}
+                      value={eventType}
                     />
                     <Select
                       value={eventType}
-                      onValueChange={(v) => setEventType(v ?? undefined)}
+                      onValueChange={(v) => setEventType(v ?? "")}
                       required
                     >
                       <SelectTrigger
@@ -263,7 +373,6 @@ export function LeadForm() {
                           <SelectItem
                             key={opt.value}
                             value={opt.value}
-                            label={opt.label}
                             className={selectItemClassName}
                           >
                             {opt.label}

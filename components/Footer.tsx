@@ -4,11 +4,13 @@ import { Mail, Phone } from "lucide-react";
 import { locationEntries, services } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
-const PHONE_DISPLAY = "050-1234567";
-const PHONE_TEL = "+972501234567";
-const EMAIL = "omer@example.com";
-const WHATSAPP_URL = "https://wa.me/972501234567";
-const INSTAGRAM_URL = "https://www.instagram.com/omermizrahi/";
+const PHONE_DISPLAY = "054-7672082";
+const PHONE_TEL = "+972547672082";
+const EMAIL = "omermofficial11@gmail.com";
+const WHATSAPP_URL = "https://wa.me/972547672082";
+const INSTAGRAM_URL = "https://www.instagram.com/___omermizrahi___/";
+const YOUTUBE_URL = "https://www.youtube.com/@DJ.OMER.MIZRAHI";
+const SOUNDCLOUD_URL = "https://soundcloud.com/omer-mizrahi-11";
 const FACEBOOK_URL = "https://www.facebook.com/";
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -50,6 +52,44 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
+function YouTubeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M10 8.5l6 3.5-6 3.5z" />
+      <path d="M4.3 8.1c.2-1 1-1.8 2-2 1.8-.4 3.7-.6 5.7-.6s3.9.2 5.7.6c1 .2 1.8 1 2 2 .4 1.2.6 2.5.6 3.9s-.2 2.7-.6 3.9c-.2 1-1 1.8-2 2-1.8.4-3.7.6-5.7.6s-3.9-.2-5.7-.6c-1-.2-1.8-1-2-2-.4-1.2-.6-2.5-.6-3.9s.2-2.7.6-3.9z" />
+    </svg>
+  );
+}
+
+function SoundCloudIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M5.2 13.4c-.6 0-1.1.4-1.2 1-.1.7.4 1.3 1.1 1.4h10.9c2.1 0 3.8-1.7 3.8-3.8S18 8.2 15.9 8.2c-.4 0-.8.1-1.2.2-.6-1.5-2-2.6-3.7-2.6-2.1 0-3.8 1.7-3.8 3.8v6.2" />
+      <path d="M6.6 9.8v6" />
+      <path d="M8.2 9v6.8" />
+      <path d="M9.8 8.6v7.2" />
+    </svg>
+  );
+}
+
 const quickLinks = [
   { href: "/#hero", label: "ראשי" },
   { href: "/#about", label: "עלי" },
@@ -66,17 +106,23 @@ const socialLinks = [
     external: true,
   },
   {
-    href: WHATSAPP_URL,
-    label: "WhatsApp",
-    icon: WhatsAppIcon,
+    href: YOUTUBE_URL,
+    label: "YouTube",
+    icon: YouTubeIcon,
     external: true,
   },
   {
+    href: SOUNDCLOUD_URL,
+    label: "SoundCloud",
+    icon: SoundCloudIcon,
+    external: true,
+  },
+/* {
     href: FACEBOOK_URL,
     label: "Facebook",
     icon: FacebookIcon,
     external: true,
-  },
+  }, */
 ] as const;
 
 export function Footer() {
@@ -171,6 +217,17 @@ export function Footer() {
                 >
                   <Mail className="size-5 shrink-0" aria-hidden />
                   <span dir="ltr">{EMAIL}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors hover:text-neon-purple"
+                >
+                  <WhatsAppIcon className="size-5 shrink-0" aria-hidden />
+                  <span dir="ltr">WhatsApp</span>
                 </a>
               </li>
             </ul>
