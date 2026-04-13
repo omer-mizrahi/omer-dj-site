@@ -54,7 +54,7 @@ export default async function ServicePage({ params }: Props) {
 
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-turquoise">
-            שירות מוזיקלי פרימיום
+           עומר מזרחי - שירותי מוזיקה
           </p>
           <h1
             id="service-hero-heading"
@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Button
               nativeButton={false}
-              render={<Link href="/#contact" />}
+              render={<Link href="/#lead-form" />}
               className={cn(
                 "h-11 rounded-full border-0 bg-gradient-to-l from-neon-purple to-electric-blue px-8 text-base font-semibold text-white shadow-lg shadow-neon-purple/20",
                 "hover:brightness-110"
@@ -88,7 +88,7 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
-      <EventFlow steps={service.flow} instanceKey={service.slug} />
+      <EventFlow />
 
       <section
         className="mx-auto w-full max-w-6xl flex-1 px-4 py-16 sm:px-6 lg:px-8"

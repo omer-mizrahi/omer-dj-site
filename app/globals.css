@@ -6,21 +6,21 @@
 @config "../tailwind.config.ts";
 
 :root {
-  --muted: oklch(0.97 0 0);
-  --neon-purple: #c026fc;
-  --electric-blue: #2f6bff;
-  --turquoise: #2dd4bf;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --muted: #111827;
+  --neon-purple: #2563eb;
+  --electric-blue: #0b1f4a;
+  --turquoise: #60a5fa;
+  --background: #050505;
+  --foreground: #ffffff;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #0b1f4a;
+  --secondary-foreground: #ffffff;
+  --muted-foreground: #9ca3af;
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -95,23 +95,33 @@ body {
 }
 
 ::selection {
+  background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  color: var(--foreground);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  color: var(--foreground);
+}
+
+::selection {
   background-color: color-mix(in srgb, var(--neon-purple) 35%, transparent);
   color: var(--foreground);
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
+  --background: #050505;
+  --foreground: #ffffff;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #0b1f4a;
+  --secondary-foreground: #ffffff;
+  --muted: #111827;
+  --muted-foreground: #9ca3af;
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
@@ -125,7 +135,7 @@ body {
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: #2563eb;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
@@ -142,5 +152,6 @@ body {
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
 }

@@ -15,6 +15,7 @@ import {
   Heart,
   Menu,
   PartyPopper,
+  Phone,
   Sparkles,
   Star,
 } from "lucide-react";
@@ -159,13 +160,14 @@ export function Navbar() {
         <div className="flex shrink-0 items-center gap-2">
           <Button
             nativeButton={false}
-            render={<Link href="/#contact" />}
+            render={<a href="tel:0547672082" />}
             className={cn(
-              "hidden h-9 rounded-full border-0 bg-gradient-to-l from-neon-purple to-electric-blue px-5 text-sm font-semibold text-white shadow-md shadow-neon-purple/25 sm:inline-flex",
+              "hidden h-9 gap-2 rounded-full border-0 bg-gradient-to-l from-neon-purple to-electric-blue px-5 text-sm font-semibold text-white shadow-md shadow-neon-purple/25 sm:inline-flex",
               "hover:brightness-110 focus-visible:ring-neon-purple/50"
             )}
           >
-            בדוק זמינות
+            <Phone className="size-4 opacity-90" aria-hidden />
+            054-767-2082
           </Button>
 
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
@@ -222,13 +224,14 @@ export function Navbar() {
                   המלצות
                 </MobileNavLink>
                 <Link
-                  href="/#contact"
+                  href="tel:0547672082"
                   onClick={() => setSheetOpen(false)}
                   className={cn(
-                    "mt-4 inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-l from-neon-purple to-electric-blue text-sm font-semibold text-white shadow-md shadow-neon-purple/25"
+                    "mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-l from-neon-purple to-electric-blue text-sm font-semibold text-white shadow-md shadow-neon-purple/25"
                   )}
                 >
-                  בדוק זמינות
+                  <Phone className="size-4 opacity-90" aria-hidden />
+                  054-767-2082
                 </Link>
               </nav>
             </SheetContent>

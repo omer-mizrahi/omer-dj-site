@@ -31,7 +31,7 @@ const inputClassName = cn(
   "placeholder:text-muted-foreground/70",
   "transition-[box-shadow,border-color,background-color]",
   "focus:border-neon-purple/60 focus:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-electric-blue/30",
-  "focus:shadow-[0_0_0_1px_rgba(192,38,252,0.35),0_0_24px_rgba(47,107,255,0.12)]"
+  "focus:shadow-[0_0_0_1px_rgba(37,99,235,0.35),0_0_24px_rgba(11,31,74,0.22)]"
 );
 
 const labelClassName =
@@ -48,18 +48,18 @@ const selectTriggerClassName = cn(
   "relative flex h-auto min-h-[48px] w-full items-center justify-between rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-start text-base text-foreground",
   "transition-[box-shadow,border-color,background-color]",
   "focus:border-neon-purple/60 focus:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-electric-blue/30",
-  "focus:shadow-[0_0_0_1px_rgba(192,38,252,0.35),0_0_24px_rgba(47,107,255,0.12)]",
+  "focus:shadow-[0_0_0_1px_rgba(37,99,235,0.35),0_0_24px_rgba(11,31,74,0.22)]",
   "focus-visible:border-neon-purple/60 focus-visible:ring-2 focus-visible:ring-electric-blue/30",
-  "focus-visible:shadow-[0_0_0_1px_rgba(192,38,252,0.35),0_0_24px_rgba(47,107,255,0.12)]",
+  "focus-visible:shadow-[0_0_0_1px_rgba(37,99,235,0.35),0_0_24px_rgba(11,31,74,0.22)]",
   "data-placeholder:text-muted-foreground/70",
   "[&_svg]:text-muted-foreground"
 );
 
 const selectContentClassName = cn(
-  "z-50 max-h-[min(24rem,var(--available-height)] border border-white/10 bg-[#09090b] p-1.5 text-white shadow-xl shadow-black/50",
+  "z-50 max-h-[min(24rem,var(--available-height)] border border-white/10 bg-background p-1.5 text-white shadow-xl shadow-black/50",
   "ring-1 ring-white/10",
-  "[&_[data-slot=select-scroll-up-button]]:bg-[#09090b]",
-  "[&_[data-slot=select-scroll-down-button]]:bg-[#09090b]"
+  "[&_[data-slot=select-scroll-up-button]]:bg-background",
+  "[&_[data-slot=select-scroll-down-button]]:bg-background"
 );
 
 const selectItemClassName = cn(
@@ -70,11 +70,11 @@ const selectItemClassName = cn(
   "[&_[data-slot=select-item-indicator]]:text-neon-purple"
 );
 
-const PHONE_DISPLAY = "050-1234567";
-const PHONE_TEL = "+972501234567";
-const WHATSAPP_LINK = "https://wa.me/972501234567";
-const EMAIL = "omer@example.com";
-const INSTAGRAM_URL = "https://www.instagram.com/omermizrahi/";
+const PHONE_DISPLAY = "054-7672082";
+const PHONE_TEL = "+972547672082";
+const WHATSAPP_LINK = "https://wa.me/972547672082";
+const EMAIL = "omermofficial11@gmail.com";
+const INSTAGRAM_URL = "https://www.instagram.com/___omermizrahi___/";
 
 const contactLinks: {
   href: string;
@@ -163,8 +163,8 @@ export function LeadForm() {
 
   return (
     <motion.section
-      id="contact"
-      className="scroll-mt-24 border-y border-white/5 bg-[#09090b] px-4 py-20 sm:px-6 lg:px-8"
+      id="lead-form"
+      className="scroll-mt-24 border-y border-white/5 bg-background px-4 py-20 sm:px-6 lg:px-8"
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -176,7 +176,7 @@ export function LeadForm() {
             מוכנים לשריין את התאריך?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            השאירו פרטים ונחזור אליכם בהקדם, או דברו איתנו ישירות.
+            השאירו פרטים ואחזור אליכם בהקדם, או צרו איתי קשר.
           </p>
         </div>
 
@@ -185,7 +185,7 @@ export function LeadForm() {
           <div className="order-2 md:order-1">
             <div
               className={cn(
-                "rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_48px_rgba(192,38,252,0.06)] backdrop-blur-xl",
+                "rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_48px_rgba(37,99,235,0.06)] backdrop-blur-xl",
                 "ring-1 ring-inset ring-white/5 sm:p-8"
               )}
             >
@@ -282,13 +282,13 @@ export function LeadForm() {
                       type="submit"
                       className={cn(
                         "w-full rounded-full py-4 text-base font-bold text-white shadow-lg",
-                        "bg-gradient-to-l from-neon-purple to-electric-blue",
-                        "shadow-[0_0_32px_rgba(192,38,252,0.35),0_8px_32px_rgba(47,107,255,0.15)]",
-                        "ring-1 ring-white/15 transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_40px_rgba(192,38,252,0.45)]",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090b]"
+                        "bg-blue-glow",
+                        "shadow-[0_0_32px_rgba(37,99,235,0.28),0_10px_40px_rgba(11,31,74,0.35)]",
+                        "ring-1 ring-white/15 transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_44px_rgba(37,99,235,0.38)]",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       )}
                     >
-                      בדוק זמינות
+                      בדקו זמינות
                     </button>
                   </motion.div>
                 </form>
@@ -299,7 +299,7 @@ export function LeadForm() {
           {/* טור שמאלי (RTL): יצירת קשר ישירה */}
           <div className="order-1 flex flex-col justify-center md:order-2">
             <h3 className="mb-6 text-start text-lg font-bold text-foreground sm:text-xl">
-              דברו איתנו ישירות
+              צרו קשר
             </h3>
             <ContactCard />
           </div>

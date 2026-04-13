@@ -7,19 +7,44 @@ import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
+    id: 1,
     name: "שיר ועידן",
     event: "חתונה",
     text: "עומר פשוט פירק את הרחבה! מהרגע הראשון של קבלת הפנים עם הדיפ האוס ועד לטירוף של האפטר פארטי. הקהל לא רצה ללכת הביתה.",
   },
   {
-    name: "מיכל, מנהלת HR",
-    event: "אירוע חברה - הייטק",
-    text: "חיפשנו דיג'יי שיודע לקרוא קהל מעורב של עובדים, ועומר קלע בול. הרים את האנרגיה בדיוק בזמן הנכון, סאונד מטורף וחוויית שירות ברמה הכי גבוהה שיש.",
+    id: 2,
+    name: "מיכל",
+    event: "אירוע חברה",
+    text: "חיפשנו דיג'יי שיודע לקרוא קהל מעורב של עובדים, ועומר קלע בול.עומר בחור נעים ואיש שירות ברמה גבוהה.",
   },
   {
-    name: "רועי ומאיה",
+    id: 3,
+    name: "גל ורון",
     event: "חתונה",
-    text: "הבחירה הכי טובה שעשינו בחתונה. עומר ידע לשלב את המוזיקה המרוקאית של המשפחה עם אלקטרוניקה מודרנית בצורה כל כך חלקה. אמן אמיתי.",
+    text: "הבחירה הכי טובה שעשינו בחתונה. עומר ידע לשלב את כל הבקשות שלנו בצורה כל כך חלקה. אלוף אמיתי.",
+  },
+  {
+    id: 4,
+    name: "רונית",
+    event: "בר מצווה",
+    text: "לא תיארתי לעצמי בכלל שיהיה כל כך שמח בבר מצווה של הבן שלי, עומר אתה אלוף!",
+  },
+  {
+    id: 5,
+    name: "מאי ואיתי",
+    event: "חתונה",
+    text: "עומר אתה הבחירה הכי טוב שלנו!!!, איזה כיף שבחנו בך! כולם מדברים עליך ועל כמה שהיה שמח. אנחנו אוהבים אותך!",
+  },
+  {
+    id: 6,
+    name: "טל ועידן",
+    event: "חתונה",
+    text: `עומר אתה אחד יחיד ומיוחד!
+אנחנו עדיין בהיי מטורף מהאירוע ושומעים מלא פירגונים מהאורחים.
+תודה שעשית לנו את הערב הכי מאושר בחיים שלנו כל כך שמח!
+אתה מלךךך!
+`,
   },
 ] as const;
 
@@ -58,15 +83,15 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="scroll-mt-24 border-y border-white/5 bg-[#09090b] px-4 pb-20 pt-24 sm:px-6 sm:pb-28 sm:pt-28 lg:px-8"
+      className="scroll-mt-24 border-y border-white/5 bg-background px-4 pb-20 pt-24 sm:px-6 sm:pb-28 sm:pt-28 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
           <span
-            className="bg-gradient-to-l from-neon-purple via-fuchsia-400 to-electric-blue bg-clip-text text-transparent"
+            className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
             style={{ WebkitBackgroundClip: "text" }}
           >
-            מה אומרים עלינו
+           לקוחות מספרים
           </span>
         </h2>
 
@@ -83,7 +108,7 @@ export function Testimonials() {
                 className={cn(
                   "group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm",
                   "transition-[transform,box-shadow,border-color] duration-300 ease-out",
-                  "hover:-translate-y-2 hover:border-neon-purple/40 hover:shadow-[0_0_32px_rgba(192,38,252,0.12),0_12px_40px_rgba(0,0,0,0.35)]",
+                  "hover:-translate-y-2 hover:border-neon-purple/40 hover:shadow-[0_0_32px_rgba(37,99,235,0.12),0_12px_40px_rgba(0,0,0,0.35)]",
                   "hover:ring-1 hover:ring-electric-blue/20"
                 )}
               >

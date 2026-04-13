@@ -7,21 +7,21 @@ import Image from "next/image";
 const features = [
   {
     icon: Activity,
-    title: "קריאת קהל אבסולוטית",
+    title: "קריאת קהל",
     description:
-      "מרגיש את הרחבה ויודע בדיוק איזה שיר ירים את האנרגיה עכשיו.",
+      "מרגיש את הרחבה ויודע בדיוק איזה שיר לנגן ומתי.",
   },
   {
     icon: Sliders,
-    title: "התאמה אישית מלאה",
+    title: "אנרגיה מחשלמת",
     description:
-      "בלי שטנצים. כל אירוע נתפר בדיוק למידות שלכם ולחזון שלכם.",
+      "זה לא רק המוזיקה, זה הוייב. אני מגיע לכל אירוע עם תשוקה אמיתית ושמחה שמדביקה את הקהל, ו 100% עוצמה לרחבה.",
   },
   {
     icon: Music2,
-    title: "שילוב סגנונות חלק",
+    title: "ניסיון",
     description:
-      "מעברים טבעיים בין מזרחית, אלקטרוניקה, מיינסטרים והיפ-הופ, בלי להוריד את הקצב.",
+      "ביטחון ושקט נפשי ,ניהול הערב והנחיית האירוע בצורה מקצועית",
   },
 ] as const;
 
@@ -59,7 +59,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 bg-[#09090b] px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
+      className="scroll-mt-24 bg-background px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -76,10 +76,10 @@ export function About() {
               className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl"
             >
               <span
-                className="bg-gradient-to-l from-neon-purple via-fuchsia-400 to-electric-blue bg-clip-text text-transparent"
+                className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
                 style={{ WebkitBackgroundClip: "text" }}
               >
-                האדם מאחורי העמדה
+              מי אני?
               </span>
             </motion.h2>
 
@@ -87,19 +87,23 @@ export function About() {
               variants={textLine}
               className="mt-6 text-lg leading-relaxed text-muted-foreground"
             >
-              נעים מאוד, אני עומר מזרחי. עם למעלה מ-15 שנות ניסיון בעמדה, למדתי
-              שאירוע מושלם לא בנוי רק מפלייליסט טוב, אלא מאנרגיה, טיימינג וקריאת
-              הקהל ברמת השניות.
+             <br /> נעים מאוד, אני עומר מזרחי. 
+             <br />
+             עם למעלה מ-15 שנות ניסיון כדיג'יי ומפיק מוזיקלי, למדתי שאירוע מושלם הוא הרבה מעבר ל"פלייליסט טוב". הוא נבנה מאנרגיה מדויקת, טיימינג מושלם וקריאת קהל חדה בכל רגע נתון.
+             <br />
+             <br />
+             הניסיון שלי הוא חלק בלתי נפרד מההנחייה המקצועית שלי והגישה לכל אירוע במקסימום רגש עם תשומת לב לכל פרט קטן. אני מגיע לכל אירוע ב 100% אנרגיה ושמחה וזה הסוד שלי לרחבה מלאה ושמחה.
+             <br />
+             <br />
             </motion.p>
 
             <motion.p
               variants={textLine}
               className="mt-4 text-lg leading-relaxed text-muted-foreground"
             >
-              כיוצר ומפיק מוזיקלי, אני חי ונושם סאונד. זה מאפשר לי להביא לרחבה
-              עריכות מיוחדות, רמיקסים שהכנתי באולפן, וחתימת סאונד מדויקת שלא תשמעו
-              בשום מקום אחר – במיוחד כשמדובר בשילוב העוצמתי של Afro, Arabic &
-              Melodic House.
+              כיוצר ומפיק מוזיקלי, אני מביא איתי לרחבה עריכות וגרסאות מיוחדות שהכנתי באולפן, וחתימת סאונד ייחודית שלא תשמעו בשום מקום אחר.
+יש לי את היכולת ליצור עבורכם גרסאות לכל שיר שרק תבקשו ותרצו שינוגן באירוע שלכם.
+
             </motion.p>
 
             <motion.ul
@@ -139,7 +143,7 @@ export function About() {
                 className="pointer-events-none absolute inset-0 -z-10 scale-90 rounded-full bg-gradient-to-br from-neon-purple/35 via-electric-blue/20 to-transparent blur-3xl"
                 aria-hidden
               />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-[0_0_48px_rgba(192,38,252,0.12)] ring-1 ring-white/5">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-[0_0_48px_rgba(37,99,235,0.10)] ring-1 ring-white/5">
                 <Image
                   src={PORTRAIT_IMAGE}
                   alt="עומר מזרחי ליד העמדה"

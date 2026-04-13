@@ -1,30 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { Play } from "lucide-react";
+import { ArrowDown, Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-
-const stagger = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.11,
-      delayChildren: 0.06,
-    },
-  },
-};
-
-const rise = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 const WAVE_BARS = 5;
 
@@ -37,7 +18,7 @@ function EnergyWave() {
       {Array.from({ length: WAVE_BARS }).map((_, i) => (
         <motion.span
           key={i}
-          className="w-[3px] rounded-full bg-emerald-400/95"
+          className="w-[3px] rounded-full bg-neon-purple/95"
           style={{ height: 14, transformOrigin: "bottom" }}
           animate={{
             scaleY: [0.35, 1, 0.5, 0.85, 0.35],
@@ -58,126 +39,102 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-32 lg:px-8"
+      dir="rtl"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* Base + cinematic gradients */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-[#09090b]"
-        aria-hidden
+      <Image
+        src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000&auto=format&fit=crop"
+        alt="DJ crowd background"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
       />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-25%,rgba(192,38,252,0.22),transparent_58%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_85%_95%,rgba(47,107,255,0.14),transparent_55%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_15%_80%,rgba(192,38,252,0.08),transparent_50%)]"
-        aria-hidden
-      />
-
-      {/* Media placeholder — swap for <video /> or next/image */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-zinc-900/25 via-zinc-950/40 to-[#09090b]/90"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-black/45"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/75 to-[#09090b]/20"
+        className="absolute inset-0 z-10 bg-black/60 bg-gradient-to-t from-[#050505] via-transparent to-transparent"
         aria-hidden
       />
 
       <motion.div
-        className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center"
-        variants={stagger}
-        initial="hidden"
-        animate="show"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+        className="relative z-20 mt-16 flex w-full max-w-4xl flex-col items-center px-6 text-center"
       >
         {/* Live Energy badge */}
-        <motion.div variants={rise}>
-          <div
-            className={cn(
-              "mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10",
-              "bg-white/[0.06] px-3 py-1.5 shadow-[0_0_24px_rgba(192,38,252,0.08)] backdrop-blur-md",
-              "ring-1 ring-white/5"
-            )}
-          >
-            <motion.span
-              className="relative flex size-2.5 shrink-0"
-              aria-hidden
-            >
-              <motion.span
-                className="absolute inset-0 rounded-full bg-emerald-400 opacity-60"
-                animate={{ scale: [1, 1.65, 1], opacity: [0.45, 0, 0.45] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-              />
-              <motion.span
-                className="relative size-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"
-                animate={{ scale: [1, 1.08, 1], opacity: [1, 0.85, 1] }}
-                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.span>
-            <EnergyWave />
-            <span className="text-xs font-medium tabular-nums tracking-wide text-white/90">
-              Live Energy: 100%
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.h1
-          variants={rise}
-          className="text-balance text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+        <div
+          className={cn(
+            "mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10",
+            "bg-white/[0.06] px-3 py-1.5 shadow-[0_0_24px_rgba(37,99,235,0.14)] backdrop-blur-md",
+            "ring-1 ring-white/5"
+          )}
         >
+          <motion.span className="relative flex size-2.5 shrink-0" aria-hidden>
+            <motion.span
+              className="absolute inset-0 rounded-full bg-neon-purple opacity-60"
+              animate={{ scale: [1, 1.65, 1], opacity: [0.45, 0, 0.45] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+            />
+            <motion.span
+              className="relative size-2.5 rounded-full bg-neon-purple shadow-[0_0_12px_rgba(37,99,235,0.75)]"
+              animate={{ scale: [1, 1.08, 1], opacity: [1, 0.85, 1] }}
+              transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.span>
+          <EnergyWave />
+          <span className="text-xs font-medium tabular-nums tracking-wide text-white/90">
+            Live Energy: 100%
+          </span>
+        </div>
+
+        <h1
+          dir="ltr"
+          className={cn(
+            "text-balance font-black uppercase tracking-[0.18em] text-white",
+            "text-5xl leading-[1.02] sm:text-6xl md:text-7xl lg:text-8xl",
+            "drop-shadow-[0_0_18px_rgba(255,255,255,0.12)]"
+          )}
+        >
+          OMER MIZRAHI
+        </h1>
+
+        <h2 className="mt-6 text-balance text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="block sm:inline">לא עוד אירוע. </span>
           <span className="relative inline-block">
             <span
-              className="bg-gradient-to-l from-neon-purple via-fuchsia-400 to-electric-blue bg-clip-text text-transparent"
+              className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: "text" }}
             >
               חוויה
             </span>
           </span>
           <span className="block sm:inline"> של פעם בחיים.</span>
-        </motion.h1>
+        </h2>
 
-        <motion.p
-          variants={rise}
-          className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl"
-        >
+        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg md:text-xl">
           מסע מוזיקלי שמתחיל ברגש ומתפוצץ ברחבה. התאמה אישית מלאה, חוויית שירות
           פרימיום, וחתימת סאונד ייחודית המשלבת נגיעות של Afro, Arabic & Melodic
           House.
-        </motion.p>
+        </p>
 
-        <motion.div
-          variants={rise}
-          className="mt-10 flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center sm:gap-4"
-        >
-          <motion.div
+        <div className="mt-10 flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center sm:gap-4">
+          <motion.a
+            href="#lead-form"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="w-full sm:w-auto"
+            className={cn(
+              "inline-flex h-14 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white shadow-lg",
+              "bg-blue-glow",
+              "shadow-[0_0_32px_rgba(37,99,235,0.28),0_10px_40px_rgba(11,31,74,0.35)]",
+              "ring-1 ring-white/15 transition-[filter] hover:brightness-110",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              "sm:min-w-[280px]"
+            )}
           >
-            <Link
-              href="/#contact"
-              className={cn(
-                "inline-flex h-14 w-full items-center justify-center rounded-full px-8 text-base font-semibold text-white shadow-lg",
-                "bg-gradient-to-l from-neon-purple to-electric-blue",
-                "shadow-[0_0_32px_rgba(192,38,252,0.35),0_8px_32px_rgba(47,107,255,0.2)]",
-                "ring-1 ring-white/15 transition-[filter] hover:brightness-110",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090b]",
-                "sm:min-w-[280px]"
-              )}
-            >
-              בדקו זמינות לתאריך שלכם
-            </Link>
-          </motion.div>
+            <ArrowDown className="size-5 shrink-0 opacity-90" aria-hidden />
+            בדקו זמינות לתאריך שלכם
+          </motion.a>
 
           <motion.div
             whileHover={{ scale: 1.02 }}
@@ -188,11 +145,11 @@ export function Hero() {
             <Link
               href="/#gallery"
               className={cn(
-                "inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-8 text-base font-semibold text-foreground",
+                "inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-8 text-base font-semibold text-white",
                 "bg-white/[0.06] backdrop-blur-md",
                 "shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]",
                 "transition-colors hover:border-white/25 hover:bg-white/[0.1]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/25 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090b]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/25 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 "sm:min-w-[200px]"
               )}
             >
@@ -200,7 +157,7 @@ export function Hero() {
               צפו בקליפים
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

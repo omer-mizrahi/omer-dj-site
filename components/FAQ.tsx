@@ -12,12 +12,6 @@ import { cn } from "@/lib/utils";
 
 const faqItems = [
   {
-    id: "equipment",
-    question: "מה קורה אם יש תקלה בציוד או הפסקת חשמל?",
-    answer:
-      "אפס תקלות. אני מגיע לכל אירוע עם גיבוי מלא – החל ממחשב נוסף, דרך קונטרולר רזרבי ועד מוזיקה המגובה על מספר כוננים. האנרגיה לא עוצרת לרגע.",
-  },
-  {
     id: "song-choice",
     question: "האם אנחנו בוחרים את כל השירים לאירוע?",
     answer:
@@ -27,24 +21,24 @@ const faqItems = [
     id: "genres",
     question: "אילו סגנונות מוזיקה אתה מנגן?",
     answer:
-      "החתימה המוזיקלית שלי נוטה לכיוון ה-Afro, Arabic & Melodic House, מה שנותן לאירוע וייב יוקרתי. עם זאת, אני מנגן הכל בהתאם לקהל ולבקשות שלכם – מיינסטרים, טראנס, מזרחית, פופ והיפ הופ.",
-  },
-  {
-    id: "mc",
-    question: "האם אתה מדבר הרבה במיקרופון (הנחיה)?",
-    answer:
-      "מינימום דיבורים, מקסימום מוזיקה. אני משתמש במיקרופון רק לנקודות הציון החשובות (חופה, שבירת כוס, כניסות) בצורה אלגנטית ומכובדת.",
+      "אני מנגן ושולט בכל סגנונות המוסיקה, ממיינסטרים, מזרחית וישראלי ועד לטכנו, האוס, טראנס, רגאטון, שחורה ושנות ה70-80-90.",
   },
   {
     id: "booking",
     question: "מתי כדאי לשריין תאריך?",
     answer:
-      "התאריכים המבוקשים (במיוחד בעונת החתונות בקיץ) נתפסים חודשים מראש. מומלץ ליצור קשר 6-8 חודשים לפני מועד האירוע כדי להבטיח את התאריך שלכם.",
+      "התאריכים המבוקשים (במיוחד בעונת החתונות בקיץ) נתפסים חודשים מראש. מומלץ ליצור קשר בהקדם האפשרי כדי להבטיח את התאריך שלכם.",
+  },
+  {
+    id: "Tradiotin",
+    question: "האם אתה עושה גם אירועים דתיים?",
+    answer:
+      "בוודאי. חלק בלתי נפרד מהעבודה שלי כדיג'יי הוא היכולת להתאים את עצמי לכל סוג של קהל. המוזיקה והאנרגיה מותאמות באופן אישי לבקשתכם",
   },
 ] as const;
 
 const triggerClassName = cn(
-  "w-full py-4 text-start text-base font-semibold text-white",
+  "w-full py-4 text-right text-base font-semibold text-white",
   "hover:no-underline hover:text-neon-purple",
   "transition-colors duration-200",
   "focus-visible:ring-neon-purple/40",
@@ -58,7 +52,7 @@ export function FAQ() {
   return (
     <motion.section
       id="faq"
-      className="scroll-mt-24 bg-[#09090b] px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
+      className="scroll-mt-24 bg-background px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -74,10 +68,7 @@ export function FAQ() {
           </p>
         </div>
 
-        <Accordion
-          className="mt-12 w-full"
-          defaultValue={[]}
-        >
+        <Accordion className="mt-12 w-full" defaultValue={[]} dir="rtl">
           {faqItems.map((item) => (
             <AccordionItem
               key={item.id}

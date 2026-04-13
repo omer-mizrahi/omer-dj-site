@@ -71,7 +71,7 @@ export default async function LocationPage({ params }: Props) {
           <div className="mt-10 flex flex-wrap gap-3">
             <Button
               nativeButton={false}
-              render={<Link href="/#contact" />}
+              render={<Link href="/#lead-form" />}
               className={cn(
                 "h-11 rounded-full border-0 bg-gradient-to-l from-neon-purple to-electric-blue px-8 text-base font-semibold text-white shadow-lg shadow-neon-purple/20",
                 "hover:brightness-110"

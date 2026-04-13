@@ -66,20 +66,20 @@ export function Gallery() {
   return (
     <section
       id="gallery"
-      className="scroll-mt-24 bg-[#09090b] px-4 py-20 sm:px-6 lg:px-8"
+      className="scroll-mt-24 bg-background px-4 py-20 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
             <span
-              className="bg-gradient-to-l from-neon-purple via-fuchsia-400 to-electric-blue bg-clip-text text-transparent"
+              className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: "text" }}
             >
               רגעים מהרחבה
             </span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg">
-            האנרגיה, הסאונד והחוויה של אירוע פרימיום.
+          גלריית אירועים וחתונות
           </p>
         </div>
 

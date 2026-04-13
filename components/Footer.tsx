@@ -83,7 +83,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-white/10 bg-black">
+    <footer className="mt-auto border-t border-white/10 bg-background">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* עמודה 1 — מיתוג */}
@@ -182,7 +182,7 @@ export function Footer() {
           <h2 className="text-sm font-semibold text-foreground">אזורי שירות</h2>
           <nav
             aria-label="אזורי שירות — דפי נחיתה מקומיים"
-            className="mt-4 text-start text-xs leading-relaxed text-gray-500"
+            className="mt-4 text-start text-xs leading-relaxed text-muted-foreground"
           >
             {locationEntries.map(({ name, slug }, i) => (
               <span key={slug}>
@@ -193,7 +193,7 @@ export function Footer() {
                 )}
                 <Link
                   href={`/locations/${slug}`}
-                  className="transition-colors hover:text-purple-400"
+                  className="transition-colors hover:text-neon-purple"
                 >
                   דיג&apos;יי ב{name}
                 </Link>
