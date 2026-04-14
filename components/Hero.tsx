@@ -102,7 +102,7 @@ export function Hero() {
           <span className="block sm:inline">לא עוד אירוע. </span>
           <span className="relative inline-block">
             <span
-              className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
+              className="bg-gradient-to-l from-blue-700 to-blue-500 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: "text" }}
             >
               חוויה
@@ -128,10 +128,10 @@ export function Hero() {
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
             className={cn(
               "inline-flex h-14 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white shadow-lg",
-              "bg-blue-glow",
-              "shadow-[0_0_32px_rgba(37,99,235,0.28),0_10px_40px_rgba(11,31,74,0.35)]",
+              "bg-gradient-to-l from-blue-700 to-blue-500",
+              "shadow-[0_0_32px_rgba(59,130,246,0.22),0_10px_40px_rgba(0,0,0,0.35)]",
               "ring-1 ring-white/15 transition-[filter] hover:brightness-110",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
               "sm:min-w-[280px]"
             )}
           >

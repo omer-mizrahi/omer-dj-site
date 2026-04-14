@@ -88,7 +88,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
           <span
-            className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
+            className="bg-gradient-to-l from-blue-700 to-blue-500 bg-clip-text text-transparent"
             style={{ WebkitBackgroundClip: "text" }}
           >
            לקוחות מספרים
@@ -106,10 +106,9 @@ export function Testimonials() {
             <motion.li key={t.name} variants={item} className="list-none">
               <article
                 className={cn(
-                  "group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm",
+                  "group relative h-full overflow-hidden rounded-2xl bg-[#0a0f1c]/40 backdrop-blur-xl border border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] p-6",
                   "transition-[transform,box-shadow,border-color] duration-300 ease-out",
-                  "hover:-translate-y-2 hover:border-neon-purple/40 hover:shadow-[0_0_32px_rgba(37,99,235,0.12),0_12px_40px_rgba(0,0,0,0.35)]",
-                  "hover:ring-1 hover:ring-electric-blue/20"
+                  "hover:-translate-y-2 hover:brightness-[1.06]"
                 )}
               >
                 <Quote
@@ -118,12 +117,12 @@ export function Testimonials() {
                 />
                 <div className="relative flex h-full flex-col">
                   <StarRow />
-                  <p className="mt-4 flex-1 text-pretty text-base italic leading-relaxed text-muted-foreground">
+                  <p className="mt-4 flex-1 text-pretty text-base italic leading-relaxed text-gray-200">
                     {t.text}
                   </p>
                   <div className="mt-6 border-t border-white/5 pt-4 text-start">
-                    <p className="font-bold text-foreground">{t.name}</p>
-                    <p className="mt-1 text-sm font-medium text-turquoise">
+                    <p className="font-bold text-white">{t.name}</p>
+                    <p className="mt-1 text-sm font-medium text-blue-300">
                       {t.event}
                     </p>
                   </div>

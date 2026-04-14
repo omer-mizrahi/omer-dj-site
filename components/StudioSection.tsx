@@ -38,7 +38,7 @@ export function StudioSection() {
               className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
             >
               <span
-                className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
+                className="bg-gradient-to-l from-blue-700 to-blue-500 bg-clip-text text-transparent"
                 style={{ WebkitBackgroundClip: "text" }}
               >
                 לא רק מתקלט - יוצר ומפיק מוזיקלי.
@@ -66,7 +66,7 @@ export function StudioSection() {
                 <motion.div
                   key={m.id}
                   variants={item}
-                  className="relative aspect-square overflow-hidden rounded-xl bg-muted/20"
+                  className="relative aspect-square overflow-hidden rounded-xl bg-[#0a0f1c]/40 backdrop-blur-xl border border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
                 >
                   {m.type === "video" ? (
                     <iframe

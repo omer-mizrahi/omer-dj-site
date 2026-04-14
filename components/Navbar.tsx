@@ -2,13 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import {
-  motion,
-  useMotionTemplate,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Building2,
   Flower2,
@@ -50,29 +44,10 @@ const SERVICE_ICONS: Record<ServiceSlug, typeof Heart> = {
 
 export function Navbar() {
   const [sheetOpen, setSheetOpen] = React.useState(false);
-  const { scrollY } = useScroll();
-  const scrollSmooth = useSpring(scrollY, { stiffness: 320, damping: 34, mass: 0.35 });
-
-  const blurPx = useTransform(scrollSmooth, [0, 96], [0, 18]);
-  const bgAlpha = useTransform(scrollSmooth, [0, 96], [0, 0.58]);
-  const lineAlpha = useTransform(scrollSmooth, [0, 96], [0, 0.14]);
-  const shadowStrength = useTransform(scrollSmooth, [0, 96], [0, 0.35]);
-
-  const backdropFilter = useMotionTemplate`blur(${blurPx}px)`;
-  const backgroundColor = useMotionTemplate`rgba(9, 9, 11, ${bgAlpha})`;
-  const borderColor = useMotionTemplate`rgba(255, 255, 255, ${lineAlpha})`;
-  const boxShadow = useMotionTemplate`0 18px 48px rgba(0, 0, 0, ${shadowStrength})`;
 
   return (
     <motion.header
-      className="sticky top-0 z-50 border-b border-transparent"
-      style={{
-        backdropFilter,
-        WebkitBackdropFilter: backdropFilter,
-        backgroundColor,
-        borderBottomColor: borderColor,
-        boxShadow,
-      }}
+      className="sticky top-0 z-50 bg-[#0a0f1c]/40 backdrop-blur-xl border-b border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <Link
@@ -171,8 +146,8 @@ export function Navbar() {
             nativeButton={false}
             render={<a href="tel:0547672082" />}
             className={cn(
-              "hidden h-9 gap-2 rounded-full border-0 bg-gradient-to-l from-neon-purple to-electric-blue px-5 text-sm font-semibold text-white shadow-md shadow-neon-purple/25 sm:inline-flex",
-              "hover:brightness-110 focus-visible:ring-neon-purple/50"
+              "hidden h-9 gap-2 rounded-full border-0 bg-gradient-to-l from-blue-700 to-blue-500 px-5 text-sm font-semibold text-white shadow-md shadow-black/20 sm:inline-flex",
+              "hover:brightness-110 focus-visible:ring-blue-400/40"
             )}
           >
             <Phone className="size-4 opacity-90" aria-hidden />
@@ -191,7 +166,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="border-white/10 bg-background/95 backdrop-blur-xl"
+                className="bg-[#0a0f1c]/40 backdrop-blur-xl border-white/10"
               showCloseButton
             >
               <SheetHeader className="border-b border-white/10 text-start">
@@ -239,7 +214,7 @@ export function Navbar() {
                   href="tel:0547672082"
                   onClick={() => setSheetOpen(false)}
                   className={cn(
-                    "mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-l from-neon-purple to-electric-blue text-sm font-semibold text-white shadow-md shadow-neon-purple/25"
+                    "mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-l from-blue-700 to-blue-500 text-sm font-semibold text-white shadow-md shadow-black/20 hover:brightness-110"
                   )}
                 >
                   <Phone className="size-4 opacity-90" aria-hidden />

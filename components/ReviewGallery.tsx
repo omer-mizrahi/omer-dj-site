@@ -29,7 +29,7 @@ export function ReviewGallery() {
     <section className="bg-background px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-turquoise">
+          <p className="text-lg font-semibold uppercase tracking-[0.22em] text-turquoise">
             הודעות שעושות את היום
           </p>
         </div>
@@ -48,7 +48,7 @@ export function ReviewGallery() {
                   onClick={() => setActive(r)}
                   aria-label={r.alt}
                 >
-                  <div className="relative aspect-[9/16] overflow-hidden rounded-xl border border-gray-800 bg-black/30">
+                  <div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-[#0a0f1c]/40 backdrop-blur-xl border border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
                     <Image
                       src={r.src}
                       alt={r.alt}
@@ -87,7 +87,7 @@ export function ReviewGallery() {
                 סגור
               </Button>
             </div>
-            <div className="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-black ring-1 ring-white/10">
+            <div className="relative aspect-[9/16] overflow-hidden rounded-2xl bg-[#0a0f1c]/40 backdrop-blur-xl border border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
               <Image
                 src={active.src}
                 alt={active.alt}

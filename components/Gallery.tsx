@@ -35,7 +35,7 @@ export function Gallery() {
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
             <span
-              className="bg-gradient-to-l from-neon-purple to-electric-blue bg-clip-text text-transparent"
+              className="bg-gradient-to-l from-blue-700 to-blue-500 bg-clip-text text-transparent"
               style={{ WebkitBackgroundClip: "text" }}
             >
               רגעים מהרחבה

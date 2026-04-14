@@ -216,7 +216,7 @@ export function LeadForm() {
           <div className="order-2 md:order-1">
             <div
               className={cn(
-                "rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_0_48px_rgba(37,99,235,0.06)] backdrop-blur-xl",
+                "rounded-3xl bg-[#0a0f1c]/40 backdrop-blur-xl border border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] p-6 text-white",
                 "ring-1 ring-inset ring-white/5 sm:p-8"
               )}
             >
@@ -236,10 +236,10 @@ export function LeadForm() {
                       strokeWidth={2}
                     />
                   </div>
-                  <h3 className="text-balance text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+                  <h3 className="text-balance text-xl font-bold tracking-tight text-white sm:text-2xl">
                     מעולה! עברנו לווטסאפ.
                   </h3>
-                  <p className="max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  <p className="max-w-md text-pretty text-sm leading-relaxed text-gray-200 sm:text-base">
                     אם החלון לא נפתח אוטומטית,{" "}
                     <a
                       href={whatsappOpenUrl ?? WHATSAPP_LINK}
@@ -391,10 +391,10 @@ export function LeadForm() {
                       type="submit"
                       className={cn(
                         "w-full rounded-full py-4 text-base font-bold text-white shadow-lg",
-                        "bg-blue-glow",
-                        "shadow-[0_0_32px_rgba(37,99,235,0.28),0_10px_40px_rgba(11,31,74,0.35)]",
-                        "ring-1 ring-white/15 transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_44px_rgba(37,99,235,0.38)]",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        "bg-gradient-to-l from-blue-700 to-blue-500",
+                        "shadow-[0_0_32px_rgba(59,130,246,0.22),0_10px_40px_rgba(0,0,0,0.35)]",
+                        "ring-1 ring-white/15 transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_0_44px_rgba(59,130,246,0.28)]",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                       )}
                     >
                       בדקו זמינות

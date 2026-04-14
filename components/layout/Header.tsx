@@ -55,7 +55,7 @@ export function Header() {
         <div className="flex shrink-0 items-center gap-2">
           <Link
             href="#lead-form"
-            className="inline-flex items-center justify-center rounded-full bg-gradient-to-l from-neon-purple to-electric-blue px-4 py-2 text-sm font-semibold text-white shadow-md shadow-neon-purple/25 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-blue"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-l from-blue-700 to-blue-500 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-black/20 transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400/40"
           >
             בדוק זמינות
           </Link>
