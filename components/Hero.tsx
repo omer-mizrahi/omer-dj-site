@@ -43,7 +43,7 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       <Image
-        src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2000&auto=format&fit=crop"
+        src="/images/omer/Bg color.JPG"
         alt="DJ crowd background"
         fill
         priority
@@ -64,7 +64,7 @@ export function Hero() {
         {/* Live Energy badge */}
         <div
           className={cn(
-            "mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10",
+            "mb-0 inline-flex items-center gap-2.5 rounded-full border border-white/10",
             "bg-white/[0.06] px-3 py-1.5 shadow-[0_0_24px_rgba(37,99,235,0.14)] backdrop-blur-md",
             "ring-1 ring-white/5"
           )}
@@ -87,7 +87,7 @@ export function Hero() {
           </span>
         </div>
 
-        <h1
+      {/* <h1
           dir="ltr"
           className={cn(
             "text-balance font-black uppercase tracking-[0.18em] text-white",
@@ -96,7 +96,7 @@ export function Hero() {
           )}
         >
           OMER MIZRAHI
-        </h1>
+        </h1> */}
 
         <h2 className="mt-6 text-balance text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="block sm:inline">לא עוד אירוע. </span>
@@ -112,9 +112,12 @@ export function Hero() {
         </h2>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg md:text-xl">
-          מסע מוזיקלי שמתחיל ברגש ומתפוצץ ברחבה. התאמה אישית מלאה, חוויית שירות
-          פרימיום, וחתימת סאונד ייחודית המשלבת נגיעות של Afro, Arabic & Melodic
-          House.
+        מעל 15 שנות ניסיון מתנקזות ללילה אחד מושלם.
+קריאת קהל אבסולוטית ואנרגיה מחשמלת.
+סטנדרט האירועים שעוד לא הכרתם.
+        </p>
+        <p className="mt-0 max-w-2xl text-pretty text-base leading-relaxed text-white/70 sm:text-lg md:text-xl">
+        DJ עומר מזרחי  - אירוע שנשמע אחרת.
         </p>
 
         <div className="mt-10 flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center sm:gap-4">

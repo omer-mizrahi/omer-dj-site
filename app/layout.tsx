@@ -33,7 +33,10 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+      <body
+        className="flex min-h-full flex-col bg-background font-sans text-foreground"
+        suppressHydrationWarning
+      >
         <Navbar />
         <div className="flex flex-1 flex-col">{children}</div>
         <Footer />

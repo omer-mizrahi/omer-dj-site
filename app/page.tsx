@@ -5,6 +5,8 @@ import { Gallery } from "@/components/Gallery";
 import { Hero } from "@/components/Hero";
 import { LeadForm } from "@/components/LeadForm";
 import { Packages } from "@/components/sections/Packages";
+import { ReviewGallery } from "@/components/ReviewGallery";
+import { StudioSection } from "@/components/StudioSection";
 import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
@@ -12,9 +14,11 @@ export default function Home() {
     <main className="flex flex-1 flex-col">
       <Hero />
       <About />
-      <Gallery />
       <EventFlow />
+      <StudioSection />
+      <Gallery />
       <Testimonials />
+      <ReviewGallery />
       <LeadForm />
       <FAQ />
     </main>

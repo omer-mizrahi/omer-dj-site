@@ -141,7 +141,16 @@ export function Navbar() {
                   closeOnClick
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  קליפים
+                  גלריה
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  href="/#studio"
+                  closeOnClick
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  האולפן
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
@@ -215,7 +224,10 @@ export function Navbar() {
                   </div>
                 </div>
                 <MobileNavLink href="/#gallery" onNavigate={() => setSheetOpen(false)}>
-                  קליפים
+                  גלריה
+                </MobileNavLink>
+                <MobileNavLink href="/#studio" onNavigate={() => setSheetOpen(false)}>
+                  האולפן
                 </MobileNavLink>
                 <MobileNavLink
                   href="/#testimonials"

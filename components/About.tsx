@@ -53,7 +53,7 @@ const imageMotion = {
 };
 
 const PORTRAIT_IMAGE =
-  "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000&auto=format&fit=crop";
+  "/images/omer/Profile.png";
 
 export function About() {
   return (

@@ -177,3 +177,117 @@ export function isValidServiceSlug(slug: string): slug is ServiceSlug {
 export function isValidLocationSlug(slug: string): slug is LocationSlug {
   return locationEntries.some((l) => l.slug === slug);
 }
+
+export type GalleryMediaItem = {
+  id: string;
+  type: "image" | "video";
+  src: string;
+  alt: string;
+};
+
+export const eventMedia: GalleryMediaItem[] = [
+  {
+    id: "event-1",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop",
+    alt: "DJ מנגן ברחבת ריקודים באירוע",
+  },
+  {
+    id: "event-2",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1200&auto=format&fit=crop",
+    alt: "אורחים רוקדים ברחבה",
+  },
+  {
+    id: "event-3",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1533174000265-e9b0962b1bea?q=80&w=1200&auto=format&fit=crop",
+    alt: "תאורה ומועדון באירוע",
+  },
+  {
+    id: "event-4",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1200&auto=format&fit=crop",
+    alt: "קונטרולר דיג'יי מקרוב",
+  },
+  {
+    id: "event-5",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=1200&auto=format&fit=crop",
+    alt: "קהל שמח ברחבה",
+  },
+  {
+    id: "event-6",
+    type: "video",
+    src: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    alt: "קליפ קצר מהרחבה (דמו)",
+  },
+  {
+    id: "event-7",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1520697222865-7b8c09645cc8?q=80&w=1200&auto=format&fit=crop",
+    alt: "רחבה מלאה ואנרגיה גבוהה",
+  },
+  {
+    id: "event-8",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop",
+    alt: "DJ סט על הבמה",
+  },
+] as const;
+
+export const studioMedia: GalleryMediaItem[] = [
+  {
+    id: "studio-1",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop",
+    alt: "סטודיו: סט דיג'יי וציוד",
+  },
+  {
+    id: "studio-2",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1400&auto=format&fit=crop",
+    alt: "סטודיו: סינתיסייזר ומקשים",
+  },
+  {
+    id: "studio-3",
+    type: "image",
+    src: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=1400&auto=format&fit=crop",
+    alt: "סטודיו: מיקסר וחומרה",
+  },
+  {
+    id: "studio-4",
+    type: "video",
+    src: "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    alt: "סטודיו: תהליך יצירה (דמו)",
+  },
+] as const;
+
+export const whatsappReviews: GalleryMediaItem[] = [
+  {
+    id: "wa-1",
+    type: "image",
+    // Portrait “phone screenshot”-style placeholder
+    src: "/images/reviews/01.png",
+    alt: "הודעת וואטסאפ - המלצה 1",
+  },
+  {
+    id: "wa-2",
+    type: "image",
+    src: "/images/reviews/02.png",
+    alt: "הודעת וואטסאפ - המלצה 2",
+  },
+  {
+    id: "wa-3",
+    type: "image",
+    src: "/images/reviews/034.jpg",
+    alt: "הודעת וואטסאפ - המלצה 3",
+  },
+  {
+    id: "wa-4",
+    type: "image",
+    src: "/images/reviews/04.png",
+    alt: "הודעת וואטסאפ - המלצה 4",
+  },
+
+] as const;

@@ -5,6 +5,7 @@ import { CheckCircle } from "lucide-react";
 
 import { EventFlow } from "@/components/EventFlow";
 import { LeadForm } from "@/components/LeadForm";
+import { ReviewGallery } from "@/components/ReviewGallery";
 import { Testimonials } from "@/components/Testimonials";
 import { Button } from "@/components/ui/button";
 import { getServiceBySlug, isValidServiceSlug, services } from "@/lib/site-config";
@@ -138,6 +139,7 @@ export default async function ServicePage({ params }: Props) {
       <EventFlow />
       <Gallery />
       <Testimonials />
+      <ReviewGallery />
       <LeadForm />
 
     </main>
