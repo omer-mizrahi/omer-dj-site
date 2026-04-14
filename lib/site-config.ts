@@ -189,77 +189,78 @@ export const eventMedia: GalleryMediaItem[] = [
   {
     id: "event-1",
     type: "image",
-    src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop",
-    alt: "DJ מנגן ברחבת ריקודים באירוע",
+    src: "/images/events/ev05.jpg",
+    alt: "DJ OMER MIZRAHI",
   },
   {
     id: "event-2",
     type: "image",
-    src: "https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/events/ev03.jpg",
     alt: "אורחים רוקדים ברחבה",
   },
   {
     id: "event-3",
     type: "image",
-    src: "https://images.unsplash.com/photo-1533174000265-e9b0962b1bea?q=80&w=1200&auto=format&fit=crop",
-    alt: "תאורה ומועדון באירוע",
+    src: "/images/events/ev08.jpg",
+    alt: "דיג'יי עומר מזרחי באירוע",
   },
   {
     id: "event-4",
     type: "image",
-    src: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1200&auto=format&fit=crop",
-    alt: "קונטרולר דיג'יי מקרוב",
+    src: "/images/events/ev06.jpg",
+    alt: "חתונה שישי צהריים",
   },
   {
     id: "event-5",
     type: "image",
-    src: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/events/ev04.jpg",
     alt: "קהל שמח ברחבה",
   },
   {
     id: "event-6",
-    type: "video",
-    src: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    alt: "קליפ קצר מהרחבה (דמו)",
+    type: "image",
+    src: "/images/events/ev01.jpg",
+    alt: "DJ עומר מזרחי",
   },
   {
     id: "event-7",
     type: "image",
-    src: "https://images.unsplash.com/photo-1520697222865-7b8c09645cc8?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/events/ev09.jpg",
     alt: "רחבה מלאה ואנרגיה גבוהה",
   },
   {
     id: "event-8",
     type: "image",
-    src: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop",
-    alt: "DJ סט על הבמה",
+    src: "/images/events/ev10.jpg",
+    alt: "השקט שלפני הסערה",
   },
+
 ] as const;
 
 export const studioMedia: GalleryMediaItem[] = [
   {
-    id: "studio-1",
-    type: "image",
-    src: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop",
-    alt: "סטודיו: סט דיג'יי וציוד",
-  },
-  {
-    id: "studio-2",
-    type: "image",
-    src: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1400&auto=format&fit=crop",
-    alt: "סטודיו: סינתיסייזר ומקשים",
-  },
-  {
-    id: "studio-3",
-    type: "image",
-    src: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=1400&auto=format&fit=crop",
-    alt: "סטודיו: מיקסר וחומרה",
-  },
-  {
-    id: "studio-4",
+    id: "s1",
     type: "video",
-    src: "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
-    alt: "סטודיו: תהליך יצירה (דמו)",
+    src: "https://www.youtube.com/embed/cJordYkf4Uc",
+    alt: "Studio video 1",
+  },
+  {
+    id: "s2",
+    type: "video",
+    src: "https://www.youtube.com/embed/yi3fE-RCQdo",
+    alt: "Studio video 2",
+  },
+  {
+    id: "s3",
+    type: "video",
+    src: "https://www.youtube.com/embed/YZgPGearWJM",
+    alt: "Studio video 3",
+  },
+  {
+    id: "s4",
+    type: "image",
+    src: "/images/studio/st01.jpg",
+    alt: "סטודיו: ציוד וייבים",
   },
 ] as const;
 

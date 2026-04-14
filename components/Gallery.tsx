@@ -1,70 +1,21 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { eventMedia, type GalleryMediaItem } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
 const cardClassName =
   "relative overflow-hidden rounded-2xl border border-white/10 bg-black/40 ring-1 ring-white/5";
 
-function MediaPreview({ media, className }: { media: GalleryMediaItem; className?: string }) {
-  if (media.type === "image") {
-    return (
-      <div className={cn("group relative size-full", className)}>
-        <Image
-          src={media.src}
-          alt={media.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="cursor-pointer object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-      </div>
-    );
-  }
-
-  return (
-    <video
-      className={cn(
-        "absolute inset-0 size-full cursor-pointer bg-black object-cover",
-        className
-      )}
-      src={media.src}
-      muted
-      playsInline
-      preload="metadata"
-    />
-  );
-}
-
 export function Gallery() {
-  const INITIAL_VISIBLE = 6;
-  const [visibleCount, setVisibleCount] = React.useState(INITIAL_VISIBLE);
+  const [visibleCount, setVisibleCount] = React.useState(8);
   const [active, setActive] = React.useState<GalleryMediaItem | null>(null);
 
   const visibleItems = eventMedia.slice(0, visibleCount);
-  const canToggle = eventMedia.length > INITIAL_VISIBLE;
-  const isExpanded = visibleCount >= eventMedia.length;
+  const canToggle = eventMedia.length > 8;
 
   React.useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -95,20 +46,12 @@ export function Gallery() {
           </p>
         </div>
 
-        <motion.div
-          className={cn(
-            "mt-14 columns-1 gap-6 space-y-6 md:columns-2 lg:columns-3",
-            "[&>*]:break-inside-avoid"
-          )}
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
+        <div
+          className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
         >
           {visibleItems.map((media) => (
-            <motion.div
+            <div
               key={media.id}
-              variants={item}
               className={cn(cardClassName, "cursor-pointer")}
               role="button"
               tabIndex={0}
@@ -118,8 +61,25 @@ export function Gallery() {
                 if (e.key === "Enter" || e.key === " ") setActive(media);
               }}
             >
-              <div className="relative aspect-square">
-                <MediaPreview media={media} />
+              <div className="relative w-full aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-muted/20 cursor-pointer">
+                {media.type === "image" ? (
+                  <Image
+                    src={media.src}
+                    alt={media.alt}
+                    fill
+                    unoptimized={true}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                ) : (
+                  <video
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src={media.src}
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                )}
                 {media.type === "video" ? (
                   <div className="pointer-events-none absolute inset-0 grid place-items-center">
                     <div className="rounded-full bg-black/55 px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/15">
@@ -128,9 +88,9 @@ export function Gallery() {
                   </div>
                 ) : null}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {canToggle ? (
           <div className="mt-10 flex justify-center">
@@ -138,14 +98,14 @@ export function Gallery() {
               variant="outline"
               className="h-11 rounded-full border-white/15 bg-background/40 px-8 backdrop-blur-sm"
               onClick={() => {
-                if (isExpanded) {
-                  setVisibleCount(INITIAL_VISIBLE);
+                if (visibleCount < eventMedia.length) {
+                  setVisibleCount((prev) => prev + 8);
                 } else {
-                  setVisibleCount(eventMedia.length);
+                  setVisibleCount(8);
                 }
               }}
             >
-              {isExpanded ? "הצג פחות" : "הצג עוד"}
+              {visibleCount < eventMedia.length ? "הצג עוד" : "הצג פחות"}
             </Button>
           </div>
         ) : null}

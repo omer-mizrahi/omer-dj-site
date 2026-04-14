@@ -62,30 +62,27 @@ export function StudioSection() {
             viewport={{ once: true, margin: "-60px" }}
           >
             <div className="grid grid-cols-2 gap-4">
-              {studioMedia.slice(0, 4).map((m) => (
+              {studioMedia.map((m) => (
                 <motion.div
                   key={m.id}
                   variants={item}
-                  className={cn(
-                    "relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] ring-1 ring-white/5",
-                    "aspect-square"
-                  )}
+                  className="relative aspect-square overflow-hidden rounded-xl bg-muted/20"
                 >
-                  {m.type === "image" ? (
+                  {m.type === "video" ? (
+                    <iframe
+                      src={m.src}
+                      title="Studio Video"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
                     <Image
                       src={m.src}
                       alt={m.alt}
                       fill
                       sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover"
-                    />
-                  ) : (
-                    <video
-                      className="absolute inset-0 size-full bg-black object-cover"
-                      src={m.src}
-                      muted
-                      playsInline
-                      preload="metadata"
                     />
                   )}
                 </motion.div>
