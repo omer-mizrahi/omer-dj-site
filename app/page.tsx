@@ -4,6 +4,7 @@ import { FAQ } from "@/components/FAQ";
 import { Gallery } from "@/components/Gallery";
 import { Hero } from "@/components/Hero";
 import { LeadForm } from "@/components/LeadForm";
+import { ComplementaryServices } from "@/components/ComplementaryServices";
 import { Packages } from "@/components/sections/Packages";
 import { ReviewGallery } from "@/components/ReviewGallery";
 import { StudioSection } from "@/components/StudioSection";
@@ -21,6 +22,7 @@ export default function Home() {
       <ReviewGallery />
       <LeadForm />
       <FAQ />
+      <ComplementaryServices />
     </main>
   );
 }
