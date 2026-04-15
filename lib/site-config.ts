@@ -233,7 +233,7 @@ export const eventMedia: GalleryMediaItem[] = [
   {
     id: "event-8",
     type: "image",
-    src: "/images/events/ev10.jpg",
+    src: "/images/events/eev10.jpg",
     alt: "השקט שלפני הסערה",
   },
 
