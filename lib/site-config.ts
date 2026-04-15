@@ -271,25 +271,25 @@ export const whatsappReviews: GalleryMediaItem[] = [
     id: "wa-1",
     type: "image",
     // Portrait “phone screenshot”-style placeholder
-    src: "/images/reviews/01.png",
+    src: "/images/reviews/r01.png",
     alt: "הודעת וואטסאפ - המלצה 1",
   },
   {
     id: "wa-2",
     type: "image",
-    src: "/images/reviews/02.png",
+    src: "/images/reviews/r02.png",
     alt: "הודעת וואטסאפ - המלצה 2",
   },
   {
     id: "wa-3",
     type: "image",
-    src: "/images/reviews/034.jpg",
+    src: "/images/reviews/r034.jpg",
     alt: "הודעת וואטסאפ - המלצה 3",
   },
   {
     id: "wa-4",
     type: "image",
-    src: "/images/reviews/04.png",
+    src: "/images/reviews/r04.png",
     alt: "הודעת וואטסאפ - המלצה 4",
   },
 

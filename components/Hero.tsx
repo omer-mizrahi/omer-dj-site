@@ -43,7 +43,7 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       <Image
-        src="/images/omer/Bg color.JPG"
+        src="/images/omer/bgcolor.jpg"
         alt="DJ crowd background"
         fill
         priority
