@@ -26,13 +26,13 @@ const JOURNEY_STEPS: readonly JourneyStep[] = [
     icon: ListMusic,
   },
   {
-    title: "עבודת אולפן (היתרון שלי)",
+    title: "עבודת אולפן",
     description:
       "כמפיק מוזיקלי, כאן מתחיל הקסם האמיתי. אני נכנס לאולפן כדי להכין עריכות מיוחדות, וגרסאות ייחודיות עבור האירוע שלכם.",
     icon: Headphones,
   },
   {
-    title: "האירוע (Live Energy)",
+    title: "האירוע",
     description:
       "היום הגדול הגיע. אפס תקלות, 100% אנרגיה. קריאת קהל חדה בזמן אמת ושליטה אבסולוטית ברחבה.",
     icon: Flame,

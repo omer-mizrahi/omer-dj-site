@@ -9,6 +9,11 @@ import {
   locationEntries,
 } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import { EventFlow } from "@/components/EventFlow";
+import { Gallery } from "@/components/Gallery";
+import { Testimonials } from "@/components/Testimonials";
+import { ReviewGallery } from "@/components/ReviewGallery";
+import { LeadForm } from "@/components/LeadForm";
 
 type Props = { params: Promise<{ city: string }> };
 
@@ -65,8 +70,8 @@ export default async function LocationPage({ params }: Props) {
             הזה זמן רב אחרי שירדו מהרחבה.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            שירות מגיע ל{loc.name} ולסביבה הקרובה. דברו איתנו על התאריך, סוג
-            האירוע והחזון — ונבנה יחד חוויה שמדברת בשפה שלכם.
+          חוגגים ב{loc.name} והסביבה הקרובה? אני כאן בשבילכם. דברו איתי על התאריך והחזון שלכם, ויחד נבנה את הפסקול המושלם לאירוע של פעם בחיים.
+
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Button
@@ -77,7 +82,7 @@ export default async function LocationPage({ params }: Props) {
                 "hover:brightness-110"
               )}
             >
-              בדוק זמינות ב{loc.name}
+              בדקו זמינות
             </Button>
             <Button
               nativeButton={false}
@@ -88,8 +93,14 @@ export default async function LocationPage({ params }: Props) {
               כל השירותים בדף הבית
             </Button>
           </div>
-        </div>
+        </div>  
       </article>
+
+          <EventFlow />
+      <Gallery />
+      <Testimonials />
+      <ReviewGallery />
+      <LeadForm />
     </main>
   );
 }

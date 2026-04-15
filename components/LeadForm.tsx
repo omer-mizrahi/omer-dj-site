@@ -207,7 +207,7 @@ export function LeadForm() {
             מוכנים לשריין את התאריך?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            השאירו פרטים ואחזור אליכם בהקדם, או צרו איתי קשר.
+            השאירו פרטים ואחזור אליכם בהקדם, או צרו איתי קשר ישירות.
           </p>
         </div>
 

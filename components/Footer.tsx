@@ -265,9 +265,9 @@ export function Footer() {
           <p className="text-center text-xs text-muted-foreground sm:text-start">
             © {year} Omer Mizrahi. All rights reserved.
           </p>
-          <p className="text-center text-[11px] text-muted-foreground/70 sm:text-end">
+         {/*<p className="text-center text-[11px] text-muted-foreground/70 sm:text-end">
             Built with Cursor
-          </p>
+          </p>*/}
         </div>
       </div>
     </footer>
