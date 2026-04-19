@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const rubik = Rubik({
   subsets: ["latin", "hebrew"],
@@ -41,6 +42,7 @@ export default function RootLayout({
         <div className="flex flex-1 flex-col">{children}</div>
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-6EDM129MKS" />
     </html>
   );
 }
