@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!loc) {
     return { title: "אזור לא נמצא" };
   }
-  const title = `דיג'יי ב${loc.name} - עומר מזרחי | DJ Omer Mizrahi`;
-  const description = `מחפשים דיג'יי ב${loc.name}? עומר מזרחי מגיע להקפיץ לכם את האירוע עם סאונד, תאורה וחוויה מלאה.`;
+  const title = `דיג'יי ב${loc.name} | חתונות, חינות ואירועים - עומר מזרחי`;
+  const description = `דיג'יי ב${loc.name} לחתונות, חינות, בר ובת מצווה ואירועים פרטיים. עומר מזרחי משלב מוזיקה מזרחית, אפרו האוס ולהיטים עכשוויים כדי להפוך את האירוע שלכם ב${loc.name} למסיבה בלתי נשכחת.`;
   return {
     title,
     description,

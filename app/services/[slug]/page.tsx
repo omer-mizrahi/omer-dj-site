@@ -24,12 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) {
     return { title: "שירות לא נמצא" };
   }
+  const title = `דיג'יי ל${service.title} | עומר מזרחי - הופכים את האירוע למסיבה`;
+  const description = `דיג'יי מקצועי ל${service.title} בפריסה ארצית — ירושלים, תל אביב, המרכז והסביבה. עומר מזרחי מביא סאונד, תאורה ואנרגיה שמחזיקות את הרחבה מההתחלה ועד הסוף.`;
   return {
-    title: `דיג'יי ל${service.title} — עומר מזרחי | DJ Omer Mizrahi`,
-    description: service.description,
+    title,
+    description,
     openGraph: {
-      title: `דיג'יי ל${service.title} — עומר מזרחי`,
-      description: service.description,
+      title,
+      description,
       locale: "he_IL",
     },
   };
