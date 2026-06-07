@@ -1,28 +1,46 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
+
+import { locationEntries, services } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // הכנס כאן את כתובת הדומיין האמיתית שלך ללא סלאש בסוף
-  const baseUrl = 'https://www.djomermizrahi.com' 
+  const baseUrl = "https://www.djomermizrahi.com";
 
-  return [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}`,
+      url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1, // העמוד הראשי מקבל את העדיפות הגבוהה ביותר
+      changeFrequency: "yearly",
+      priority: 1,
     },
-    // תוכל להוסיף כאן עמודים סטטיים נוספים שיש באתר
     {
       url: `${baseUrl}/portfolio`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 0.5,
     },
-  ]
+  ];
+
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const locationRoutes: MetadataRoute.Sitemap = locationEntries.map(
+    (location) => ({
+      url: `${baseUrl}/locations/${location.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }),
+  );
+
+  return [...staticRoutes, ...serviceRoutes, ...locationRoutes];
 }
