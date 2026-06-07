@@ -7,6 +7,7 @@ import {
   getLocationBySlug,
   isValidLocationSlug,
   locationEntries,
+  services,
 } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { EventFlow } from "@/components/EventFlow";
@@ -59,7 +60,10 @@ export default async function LocationPage({ params }: Props) {
           <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
             דיג&apos;יי ב{loc.name}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          <h2 className="mt-6 text-lg font-semibold leading-relaxed text-foreground sm:text-xl">
+            מחפשים דיג&apos;יי לאירוע, חתונה או חינה ב{loc.name}? הגעתם למקום הנכון.
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
             מחפשים דיג&apos;יי ב{loc.name}? עומר מזרחי מגיע להקפיץ לכם את האירוע —
             מוזיקה מדויקת לקהל, ציוד מקצועי, וליווי צמוד מהתכנון ועד הרגע האחרון
             על הרחבה.
@@ -101,6 +105,46 @@ export default async function LocationPage({ params }: Props) {
       <Testimonials />
       <ReviewGallery />
       <LeadForm />
+
+      <section
+        className="border-t border-white/10 bg-[#050505] px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+        aria-labelledby="location-services-heading"
+      >
+        <div
+          className={cn(
+            "mx-auto max-w-4xl rounded-3xl border border-blue-500/20 bg-[#0a0f1c]/40 p-6 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-8",
+            "ring-1 ring-inset ring-white/5"
+          )}
+        >
+          <h2
+            id="location-services-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            אירועים שאני מנגן בהם ב{loc.name}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            בחרו את סוג האירוע שלכם וגלו איך אני מביא את האנרגיה והמוזיקה המושלמת
+            לכל חגיגה ב{loc.name}.
+          </p>
+          <nav
+            aria-label={`שירותי דיג'יי ב${loc.name}`}
+            className="mt-6 flex flex-wrap gap-2.5"
+          >
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className={cn(
+                  "inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-muted-foreground backdrop-blur-sm transition-colors",
+                  "hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-foreground"
+                )}
+              >
+                דיג&apos;יי ל{service.title}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </section>
     </main>
   );
 }

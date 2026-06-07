@@ -8,7 +8,12 @@ import { LeadForm } from "@/components/LeadForm";
 import { ReviewGallery } from "@/components/ReviewGallery";
 import { Testimonials } from "@/components/Testimonials";
 import { Button } from "@/components/ui/button";
-import { getServiceBySlug, isValidServiceSlug, services } from "@/lib/site-config";
+import {
+  getServiceBySlug,
+  isValidServiceSlug,
+  locationEntries,
+  services,
+} from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { Gallery } from "@/components/Gallery";
 
@@ -147,6 +152,45 @@ export default async function ServicePage({ params }: Props) {
       <ReviewGallery />
       <LeadForm />
 
+      <section
+        className="border-t border-white/10 bg-[#050505] px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+        aria-labelledby="service-locations-heading"
+      >
+        <div
+          className={cn(
+            "mx-auto max-w-4xl rounded-3xl border border-blue-500/20 bg-[#0a0f1c]/40 p-6 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl sm:p-8",
+            "ring-1 ring-inset ring-white/5"
+          )}
+        >
+          <h2
+            id="service-locations-heading"
+            className="text-xl font-bold tracking-tight text-foreground sm:text-2xl"
+          >
+            אזורי שירות מרכזיים עבור {service.title}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            אני מגיע ל{service.title} בכל רחבי הארץ. בחרו את האזור שלכם וגלו עוד על
+            השירות המקצועי שאני מביא לכל אירוע.
+          </p>
+          <nav
+            aria-label={`אזורי שירות ל${service.title}`}
+            className="mt-6 flex flex-wrap gap-2.5"
+          >
+            {locationEntries.map((location) => (
+              <Link
+                key={location.slug}
+                href={`/locations/${location.slug}`}
+                className={cn(
+                  "inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-muted-foreground backdrop-blur-sm transition-colors",
+                  "hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-foreground"
+                )}
+              >
+                דיג&apos;יי ב{location.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </section>
     </main>
   );
 }
