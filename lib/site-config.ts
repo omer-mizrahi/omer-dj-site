@@ -255,7 +255,7 @@ export const studioMedia: GalleryMediaItem[] = [
   {
     id: "s3",
     type: "video",
-    src: "https://www.youtube.com/embed/YZgPGearWJM",
+    src: "https://www.youtube.com/embed/-eZWw8YvVjU",
     alt: "Studio video 3",
   },
   {
