@@ -197,7 +197,7 @@ export const eventMedia: GalleryMediaItem[] = [
   {
     id: "event-2",
     type: "image",
-    src: "/images/events/p_01.jpg",
+    src: "/images/events/p_01.JPG",
     alt: "אורחים רוקדים ברחבה",
   },
   {
