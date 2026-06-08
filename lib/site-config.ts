@@ -191,19 +191,19 @@ export const eventMedia: GalleryMediaItem[] = [
   {
     id: "event-1",
     type: "image",
-    src: "/images/events/ev05.jpg",
+    src: "/images/omer/n_b_01.jpg",
     alt: "DJ OMER MIZRAHI",
   },
   {
     id: "event-2",
     type: "image",
-    src: "/images/events/ev03.jpg",
+    src: "/images/events/p_01.jpg",
     alt: "אורחים רוקדים ברחבה",
   },
   {
     id: "event-3",
     type: "image",
-    src: "/images/events/ev08.jpg",
+    src: "/images/omer/n_b_02.jpg",
     alt: "דיג'יי עומר מזרחי באירוע",
   },
   {
@@ -221,7 +221,7 @@ export const eventMedia: GalleryMediaItem[] = [
   {
     id: "event-6",
     type: "image",
-    src: "/images/events/ev01.jpg",
+    src: "/images/omer/n_c_01.jpg",
     alt: "DJ עומר מזרחי",
   },
   {
