@@ -42,5 +42,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...serviceRoutes, ...locationRoutes];
+  const serviceLocationRoutes: MetadataRoute.Sitemap = services.flatMap(
+    (service) =>
+      locationEntries.map((location) => ({
+        url: `${baseUrl}/services/${service.slug}/${location.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+      })),
+  );
+
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...locationRoutes,
+    ...serviceLocationRoutes,
+  ];
 }
