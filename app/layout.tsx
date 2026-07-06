@@ -6,6 +6,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script';
 
 const rubik = Rubik({
   subsets: ["latin", "hebrew"],
@@ -36,6 +37,9 @@ export default function RootLayout({
         "font-sans"
       )}
     >
+      <head>
+        
+      </head>
       <body
         className="flex min-h-full max-w-[100vw] flex-col overflow-x-hidden bg-background font-sans text-foreground"
         suppressHydrationWarning
@@ -46,8 +50,21 @@ export default function RootLayout({
         </div>
         <Footer />
         <WhatsAppButton />
+        
       </body>
       <GoogleAnalytics gaId="G-6EDM129MKS" />
+      <Script
+  src="https://www.googletagmanager.com/gtag/js?id=AW-18302900252"
+  strategy="afterInteractive"
+/>
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18302900252');
+  `}
+</Script>
     </html>
   );
 }

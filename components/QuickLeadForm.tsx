@@ -81,7 +81,6 @@ export function QuickLeadForm({
 
     const message = [
       "היי עומר, אשמח לבדוק זמינות לאירוע!",
-      contextNote ? `הקשר: ${contextNote}` : null,
       `שם: ${fullName}`,
       `טלפון: ${phone}`,
       `סוג אירוע: ${eventTypeLabel}`,
