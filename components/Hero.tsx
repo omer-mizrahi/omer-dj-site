@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
+import { QuickLeadForm } from "@/components/QuickLeadForm";
 import { cn } from "@/lib/utils";
 
 const WAVE_BARS = 5;
@@ -59,8 +60,9 @@ export function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
-        className="relative z-20 mt-16 flex w-full min-w-0 max-w-4xl flex-col items-center px-4 text-center sm:px-6"
+        className="relative z-20 mx-auto mt-16 flex w-full min-w-0 max-w-6xl flex-col items-center gap-10 px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-12"
       >
+        <div className="flex w-full min-w-0 flex-1 flex-col items-center text-center lg:items-start lg:text-start">
         {/* Live Energy badge */}
         <div
           className={cn(
@@ -120,25 +122,7 @@ export function Hero() {
         DJ עומר מזרחי  - אירוע שנשמע אחרת.
         </p>
 
-        <div className="mt-10 flex w-full min-w-0 max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center sm:gap-4">
-          <motion.a
-            href="#lead-form"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className={cn(
-              "inline-flex h-14 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white shadow-lg",
-              "bg-gradient-to-l from-blue-700 to-blue-500",
-              "shadow-[0_0_32px_rgba(59,130,246,0.22),0_10px_40px_rgba(0,0,0,0.35)]",
-              "ring-1 ring-white/15 transition-[filter] hover:brightness-110",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-              "sm:min-w-[280px]"
-            )}
-          >
-            <ArrowDown className="size-5 shrink-0 opacity-90" aria-hidden />
-            בדקו זמינות לתאריך שלכם
-          </motion.a>
-
+        <div className="mt-8 flex w-full min-w-0 max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center lg:justify-start sm:gap-4">
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.99 }}
@@ -148,7 +132,7 @@ export function Hero() {
             <Link
               href="/#gallery"
               className={cn(
-                "inline-flex h-14 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-8 text-base font-semibold text-white",
+                "inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-8 text-base font-semibold text-white",
                 "bg-white/[0.06] backdrop-blur-md",
                 "shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]",
                 "transition-colors hover:border-white/25 hover:bg-white/[0.1]",
@@ -160,6 +144,11 @@ export function Hero() {
               צפו בקליפים
             </Link>
           </motion.div>
+        </div>
+        </div>
+
+        <div className="w-full min-w-0 shrink-0 lg:max-w-md">
+          <QuickLeadForm />
         </div>
       </motion.div>
     </section>

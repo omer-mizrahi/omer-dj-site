@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -44,6 +45,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <WhatsAppButton />
       </body>
       <GoogleAnalytics gaId="G-6EDM129MKS" />
     </html>

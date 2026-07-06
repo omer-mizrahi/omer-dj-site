@@ -7,14 +7,15 @@ import { EventFlow } from "@/components/EventFlow";
 import { Gallery } from "@/components/Gallery";
 import { LeadForm } from "@/components/LeadForm";
 import { ReviewGallery } from "@/components/ReviewGallery";
+import { ServicePageHero } from "@/components/ServicePageHero";
 import { Testimonials } from "@/components/Testimonials";
-import { Button } from "@/components/ui/button";
 import {
   getLocationBySlug,
   getServiceBySlug,
   isValidLocationSlug,
   isValidServiceSlug,
   locationEntries,
+  SERVICE_TO_EVENT_TYPE,
   services,
 } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -64,67 +65,15 @@ export default async function ServiceLocationPage({ params }: Props) {
 
   return (
     <main dir="rtl" className="flex w-full flex-1 flex-col overflow-x-hidden bg-background">
-      <section
-        className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-white/10 px-4 py-20 sm:px-6 lg:px-8"
-        aria-labelledby="service-location-hero-heading"
-      >
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-black/70 to-[#050505]"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-blue-700/25 via-blue-500/10 to-transparent opacity-70"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -start-32 top-1/4 size-[28rem] rounded-full bg-neon-purple/10 blur-3xl"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -end-24 bottom-0 size-80 rounded-full bg-electric-blue/10 blur-3xl"
-          aria-hidden
-        />
-
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-turquoise">
-            {location.name} · {service.title}
-          </p>
-          <h1
-            id="service-location-hero-heading"
-            className="mt-4 text-balance text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl"
-          >
-            דיג&apos;יי ל{service.title} ב{location.name}
-          </h1>
-          <h2 className="mx-auto mt-6 max-w-2xl text-pretty text-lg font-semibold leading-relaxed text-foreground sm:text-xl">
-            מחפשים דיג&apos;יי ל{service.title} ב{location.name}? הגעתם למקום הנכון.
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            עומר מזרחי מגיע ל{location.name} עם ניסיון עשיר ב{service.title} — מוזיקה
-            מדויקת לקהל, ציוד מקצועי וליווי צמוד מהתכנון ועד הרגע האחרון על הרחבה.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Button
-              nativeButton={false}
-              render={<Link href="#lead-form" />}
-              className={cn(
-                "h-12 rounded-full border-0 bg-gradient-to-l from-blue-700 to-blue-500 px-8 text-base font-semibold text-white shadow-lg",
-                "shadow-[0_0_32px_rgba(34,211,238,0.16),0_10px_40px_rgba(0,0,0,0.35)]",
-                "hover:brightness-110",
-              )}
-            >
-              בדקו זמינות ב{location.name}
-            </Button>
-            <Button
-              nativeButton={false}
-              variant="outline"
-              render={<Link href={`/services/${service.slug}`} />}
-              className="h-11 rounded-full border-white/15 bg-background/40 backdrop-blur-sm"
-            >
-              כל מה שצריך לדעת על {service.title}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <ServicePageHero
+        eyebrow={`${location.name} · ${service.title}`}
+        title={`דיג'יי ל${service.title} ב${location.name}`}
+        subtitle={`מחפשים דיג'יי ל${service.title} ב${location.name}? הגעתם למקום הנכון.`}
+        description={`עומר מזרחי מגיע ל${location.name} עם ניסיון עשיר ב${service.title} — מוזיקה מדויקת לקהל, ציוד מקצועי וליווי צמוד מהתכנון ועד הרגע האחרון על הרחבה.`}
+        headingId="service-location-hero-heading"
+        defaultEventType={SERVICE_TO_EVENT_TYPE[service.slug]}
+        contextNote={`דיג'יי ל${service.title} ב${location.name}`}
+      />
 
       <section className="bg-[#050505] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-12">

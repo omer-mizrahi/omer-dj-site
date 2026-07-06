@@ -294,3 +294,23 @@ export const whatsappReviews: GalleryMediaItem[] = [
   },
 
 ] as const;
+
+export const PHONE_DISPLAY = "054-7672082";
+export const PHONE_TEL = "+972547672082";
+export const WHATSAPP_NUMBER = "972547672082";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const WHATSAPP_PREFILL_MESSAGE =
+  "היי עומר, אשמח לבדוק זמינות לאירוע!";
+
+export function getWhatsAppUrl(message = WHATSAPP_PREFILL_MESSAGE): string {
+  return `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
+}
+
+export const SERVICE_TO_EVENT_TYPE: Record<ServiceSlug, string> = {
+  wedding: "wedding",
+  henna: "henna",
+  "bar-mitzvah": "bar-bat-mitzvah",
+  "bat-mitzvah": "bar-bat-mitzvah",
+  corporate: "corporate",
+  "private-events": "other",
+};
