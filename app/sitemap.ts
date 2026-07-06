@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 
+import { articles } from "@/lib/articles-config";
 import { locationEntries, services } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -52,10 +53,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })),
   );
 
+  const articleRoutes: MetadataRoute.Sitemap = articles.map((article) => ({
+    url: `${baseUrl}/blog/${article.slug}`,
+    lastModified: new Date(article.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...locationRoutes,
     ...serviceLocationRoutes,
+    ...articleRoutes,
   ];
 }

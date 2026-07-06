@@ -40,7 +40,7 @@ export function Hero() {
     <section
       id="hero"
       dir="rtl"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-x-hidden overflow-y-hidden"
     >
       <Image
         src="/images/omer/bgcolor.jpg"
@@ -59,7 +59,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
-        className="relative z-20 mt-16 flex w-full max-w-4xl flex-col items-center px-6 text-center"
+        className="relative z-20 mt-16 flex w-full min-w-0 max-w-4xl flex-col items-center px-4 text-center sm:px-6"
       >
         {/* Live Energy badge */}
         <div
@@ -98,7 +98,7 @@ export function Hero() {
           OMER MIZRAHI
         </h1> */}
 
-        <h2 className="mt-6 text-balance text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+        <h2 className="mt-6 w-full text-balance break-words px-1 text-4xl font-extrabold leading-[1.12] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="block sm:inline">לא עוד אירוע. </span>
           <span className="relative inline-block">
             <span
@@ -120,7 +120,7 @@ export function Hero() {
         DJ עומר מזרחי  - אירוע שנשמע אחרת.
         </p>
 
-        <div className="mt-10 flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center sm:gap-4">
+        <div className="mt-10 flex w-full min-w-0 max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:justify-center sm:gap-4">
           <motion.a
             href="#lead-form"
             whileHover={{ scale: 1.04 }}

@@ -63,7 +63,7 @@ export default async function ServiceLocationPage({ params }: Props) {
   >;
 
   return (
-    <main dir="rtl" className="flex flex-1 flex-col bg-background">
+    <main dir="rtl" className="flex w-full flex-1 flex-col overflow-x-hidden bg-background">
       <section
         className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-white/10 px-4 py-20 sm:px-6 lg:px-8"
         aria-labelledby="service-location-hero-heading"

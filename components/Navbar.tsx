@@ -47,20 +47,20 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 bg-[#0a0f1c]/40 backdrop-blur-xl border-b border-blue-500/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]"
+      className="sticky top-0 z-50 w-full max-w-[100vw] overflow-x-hidden border-b border-blue-500/20 bg-[#0a0f1c]/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] backdrop-blur-xl"
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full min-w-0 max-w-6xl items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="group min-w-0 shrink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <span className="block text-[0.65rem] font-black uppercase tracking-[0.35em] text-foreground transition-colors group-hover:text-neon-purple sm:text-xs">
+          <span className="block truncate text-[0.6rem] font-black uppercase tracking-[0.2em] text-foreground transition-colors group-hover:text-neon-purple sm:text-xs sm:tracking-[0.35em]">
             OMER MIZRAHI
           </span>
         </Link>
 
-        <div className="hidden flex-1 justify-center md:flex">
-          <NavigationMenu className="max-w-max">
+        <div className="hidden min-w-0 flex-1 justify-center overflow-hidden md:flex">
+          <NavigationMenu className="max-w-full">
             <NavigationMenuList className="flex-wrap justify-center gap-0.5">
               <NavigationMenuItem>
                 <NavigationMenuLink
@@ -85,7 +85,7 @@ export function Navbar() {
                   שירותים
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-0">
-                  <div className="grid w-[min(42rem,calc(100vw-2rem))] gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid w-full max-w-[42rem] gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((service) => {
                       const Icon = SERVICE_ICONS[service.slug];
                       return (
@@ -135,6 +135,14 @@ export function Navbar() {
                   className="text-muted-foreground hover:text-foreground"
                 >
                   המלצות
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink
+                  href="/blog"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  מגזין
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -209,6 +217,9 @@ export function Navbar() {
                   onNavigate={() => setSheetOpen(false)}
                 >
                   המלצות
+                </MobileNavLink>
+                <MobileNavLink href="/blog" onNavigate={() => setSheetOpen(false)}>
+                  מגזין
                 </MobileNavLink>
                 <Link
                   href="tel:0547672082"

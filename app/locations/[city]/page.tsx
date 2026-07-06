@@ -51,7 +51,7 @@ export default async function LocationPage({ params }: Props) {
   >;
 
   return (
-    <main className="flex flex-1 flex-col">
+    <main className="flex w-full flex-1 flex-col overflow-x-hidden">
       <article className="border-b border-white/10 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-semibold text-turquoise">

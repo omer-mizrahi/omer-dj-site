@@ -30,16 +30,19 @@ export default function RootLayout({
       className={cn(
         "dark",
         "h-full scroll-smooth antialiased",
+        "overflow-x-hidden max-w-[100vw]",
         rubik.variable,
         "font-sans"
       )}
     >
       <body
-        className="flex min-h-full flex-col bg-background font-sans text-foreground"
+        className="flex min-h-full max-w-[100vw] flex-col overflow-x-hidden bg-background font-sans text-foreground"
         suppressHydrationWarning
       >
         <Navbar />
-        <div className="flex flex-1 flex-col">{children}</div>
+        <div className="flex w-full min-w-0 flex-1 flex-col overflow-x-hidden">
+          {children}
+        </div>
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-6EDM129MKS" />

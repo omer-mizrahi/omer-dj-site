@@ -12,7 +12,7 @@ import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col">
+    <main className="flex w-full flex-1 flex-col overflow-x-hidden">
       <Hero />
       <About />
       <EventFlow />
