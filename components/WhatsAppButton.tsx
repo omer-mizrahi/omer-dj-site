@@ -19,35 +19,37 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function WhatsAppButton() {
-  const trackWhatsAppClick = () => {
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag('event', 'conversion', {
-        'send_to': 'AW-18302900252/YOUR_CONVERSION_LABEL' // הסבר למטה איך להשיג את ה-LABEL
-      });
-    }
-  };
-  return (
-<a
-      href={getWhatsAppUrl()}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="שלחו הודעה בוואטסאפ"
-      onClick={trackWhatsAppClick} // הוספנו את המעקב כאן
-      className={cn(
-        // ... (השאר נשאר אותו דבר)
-        "fixed bottom-6 start-6 z-50 flex size-14 items-center justify-center rounded-full",
-        "border border-green-400/30 bg-green-600/80 text-white shadow-lg shadow-green-900/30 backdrop-blur-md",
-        "transition-transform hover:scale-105 hover:bg-green-600/90",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-      )}
-    >
-      <motion.span
-        className="pointer-events-none absolute inset-0 rounded-full bg-green-400/40"
-        animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
-        transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
-        aria-hidden
-      />
-      <WhatsAppIcon className="relative size-7" />
-    </a>
+
+const trackWhatsAppClick = () => {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18302900252/In9WCLH93cscEJywwJdE'
+    });
+  }
+};
+
+return (
+  <a
+    href={getWhatsAppUrl()}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="שלחו הודעה בוואטסאפ"
+    // 2. הוספת ה-onClick לקישור
+    onClick={trackWhatsAppClick}
+    className={cn(
+      "fixed bottom-6 start-6 z-50 flex size-14 items-center justify-center rounded-full",
+      "border border-green-400/30 bg-green-600/80 text-white shadow-lg shadow-green-900/30 backdrop-blur-md",
+      "transition-transform hover:scale-105 hover:bg-green-600/90",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    )}
+  >
+    <motion.span
+      className="pointer-events-none absolute inset-0 rounded-full bg-green-400/40"
+      animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
+      transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+      aria-hidden
+    />
+    <WhatsAppIcon className="relative size-7" />
+  </a>
   );
 }
