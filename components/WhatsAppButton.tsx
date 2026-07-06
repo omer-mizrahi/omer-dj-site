@@ -19,13 +19,22 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function WhatsAppButton() {
+  const trackWhatsAppClick = () => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-18302900252/YOUR_CONVERSION_LABEL' // הסבר למטה איך להשיג את ה-LABEL
+      });
+    }
+  };
   return (
-    <a
+<a
       href={getWhatsAppUrl()}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="שלחו הודעה בוואטסאפ"
+      onClick={trackWhatsAppClick} // הוספנו את המעקב כאן
       className={cn(
+        // ... (השאר נשאר אותו דבר)
         "fixed bottom-6 start-6 z-50 flex size-14 items-center justify-center rounded-full",
         "border border-green-400/30 bg-green-600/80 text-white shadow-lg shadow-green-900/30 backdrop-blur-md",
         "transition-transform hover:scale-105 hover:bg-green-600/90",
