@@ -16,6 +16,7 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -171,6 +172,8 @@ export function LeadForm() {
     if (eventType === "") {
       return;
     }
+
+    trackWhatsAppClick();
 
     const fd = new FormData(form);
     const fullName = String(fd.get("fullName") ?? "").trim();

@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getWhatsAppUrl } from "@/lib/site-config";
+import { trackWhatsAppClick } from "@/lib/tracking";
 import { cn } from "@/lib/utils";
 
 const EVENT_TYPES = [
@@ -71,6 +72,8 @@ export function QuickLeadForm({
       form.reportValidity();
       return;
     }
+
+    trackWhatsAppClick();
 
     const fd = new FormData(form);
     const fullName = String(fd.get("fullName") ?? "").trim();

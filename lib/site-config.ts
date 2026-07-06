@@ -125,6 +125,7 @@ export const locations = [
   "נתניה",
   "רעננה",
   "כפר סבא",
+  "מודיעין"
 ] as const;
 
 /** סלאגים לכתובת URL — באותו סדר כמו `locations` */
@@ -148,6 +149,7 @@ const LOCATION_SLUGS = [
   "netanya",
   "raanana",
   "kfar-saba",
+  "modiin"
 ] as const;
 
 export type LocationSlug = (typeof LOCATION_SLUGS)[number];

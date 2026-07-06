@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import { getWhatsAppUrl } from "@/lib/site-config";
+import { trackWhatsAppClick } from "@/lib/tracking";
 import { cn } from "@/lib/utils";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -19,23 +20,13 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export function WhatsAppButton() {
-
-const trackWhatsAppClick = () => {
-  if (typeof window !== "undefined" && (window as any).gtag) {
-    (window as any).gtag('event', 'conversion', {
-      'send_to': 'AW-18302900252/In9WCLH93cscEJywwJdE'
-    });
-  }
-};
-
-return (
-  <a
-    href={getWhatsAppUrl()}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="שלחו הודעה בוואטסאפ"
-    // 2. הוספת ה-onClick לקישור
-    onClick={trackWhatsAppClick}
+  return (
+    <a
+      href={getWhatsAppUrl()}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="שלחו הודעה בוואטסאפ"
+      onClick={trackWhatsAppClick}
     className={cn(
       "fixed bottom-6 start-6 z-50 flex size-14 items-center justify-center rounded-full",
       "border border-green-400/30 bg-green-600/80 text-white shadow-lg shadow-green-900/30 backdrop-blur-md",
